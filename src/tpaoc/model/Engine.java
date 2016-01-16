@@ -1,4 +1,4 @@
-package model;
+package tpaoc.model;
 
 import java.util.HashMap;
 import java.util.Map;

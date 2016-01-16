@@ -1,15 +1,14 @@
-package view;
+package tpaoc.view;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import command.ICommand;
-import controller.IController;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import tpaoc.commands.ICommand;
+import tpaoc.controller.IController;
 
 
 public class View implements IView {

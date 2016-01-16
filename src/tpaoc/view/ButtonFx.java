@@ -1,16 +1,13 @@
-package view;
+package tpaoc.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-
-
-import command.ICommand;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import tpaoc.commands.ICommand;
 
 public class ButtonFx implements IButton, Initializable {
 

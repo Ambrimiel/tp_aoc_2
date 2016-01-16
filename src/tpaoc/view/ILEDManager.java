@@ -1,4 +1,4 @@
-package view;
+package tpaoc.view;
 /**
  * 
  * <h1> Metronome AOC. </h1>

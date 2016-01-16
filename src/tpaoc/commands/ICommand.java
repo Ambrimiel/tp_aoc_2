@@ -1,4 +1,4 @@
-package command;
+package tpaoc.commands;
 
 /**
  * <h2><i>Project name : </i>Metronome</h2>

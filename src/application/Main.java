@@ -1,15 +1,15 @@
 package application;
 	
-import controller.Controller;
-import controller.IController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import view.ButtonFx;
-import view.View;
+import tpaoc.controller.Controller;
+import tpaoc.controller.IController;
+import tpaoc.view.ButtonFx;
+import tpaoc.view.View;
 
 
 

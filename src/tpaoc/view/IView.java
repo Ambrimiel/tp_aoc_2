@@ -1,7 +1,7 @@
-package view;
+package tpaoc.view;
 
-import controller.IController;
 import javafx.scene.Parent;
+import tpaoc.controller.IController;
 
 public interface IView {
 	

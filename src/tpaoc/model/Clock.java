@@ -1,10 +1,10 @@
-package model;
+package tpaoc.model;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 
-import command.ICommand;
+import tpaoc.commands.ICommand;
 
 /**
  * <h1>Metronome AOC</h1>.

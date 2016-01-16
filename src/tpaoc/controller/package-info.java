@@ -3,8 +3,8 @@
  */
 /**
  * @author  Olivier GUILLOU
- * <h1> MetronomeH <h1>
+ * <h1> MetronomeHardware <h1>
  * 14 janv. 2016
  * 
  */
-package command;
+package tpaoc.controller;

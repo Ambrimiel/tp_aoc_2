@@ -1,6 +1,6 @@
-package view;
+package tpaoc.view;
 
-import command.ICommand;
+import tpaoc.commands.ICommand;
 
 /**
  * Button's interface.

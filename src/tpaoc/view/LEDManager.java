@@ -1,4 +1,4 @@
-package view;
+package tpaoc.view;
 
 import java.util.HashMap;
 
