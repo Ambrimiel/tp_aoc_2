@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 
 public interface IView {
 	
-	
 	IButton getButtonStart();
 
 	void setController(IController controller);
