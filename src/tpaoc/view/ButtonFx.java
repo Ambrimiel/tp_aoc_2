@@ -47,18 +47,26 @@ public class ButtonFx implements IButton, Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 
-		
-		System.err.println("Button added in view");	
+		    System.err.println("Object added in view : ");	
 		
 	        button.setOnMouseClicked(event -> {
 			
 			
-			
 			if (button.getId().equals("buttonStart")) {
 				System.err.println("The Button + " + button.getId() + " is clicked.");
-	
 			}
-
+			
+			if (button.getId().equals("buttonStop")) {
+				System.err.println("The Button + " + button.getId() + " is clicked.");
+			}
+			
+			if (button.getId().equals("buttonInc")) {
+				System.err.println("The Button + " + button.getId() + " is clicked.");
+			}
+			
+			if (button.getId().equals("buttonDec")) {
+				System.err.println("The Button + " + button.getId() + " is clicked.");
+			}
 			
 			if (command != null) {
 				command.execute();

@@ -5,7 +5,7 @@ package tpaoc.view;
  * @author Guillou-Rault
  *
  */
-public interface ILEDManager {
+public interface IDisplayer {
 
 	/**
 	 * Turns on the LED numLED.
@@ -18,4 +18,11 @@ public interface ILEDManager {
 	 * @param numLED : int
 	 */
 	void turnOffLED(int numLED);
+
+	/**
+	 * @param i
+	 */
+	void setNumLED(int i);
+	
+	
 }

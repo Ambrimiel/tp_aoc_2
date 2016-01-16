@@ -43,7 +43,7 @@ public class Material {
 	/**
 	 * @return ILEDManager.
 	 */
-	public ILEDManager getLEDManager(){
+	public IDisplayer getLEDManager(){
 		return null;
 	}
 	

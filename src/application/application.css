@@ -3,7 +3,7 @@
 
 #buttonStart {
 
--fx-background-color: yellow;
+-fx-background-color: green;
     -fx-font-family: "Verdana";
     -fx-font-size: 20px;
     -fx-text-fill: white;
@@ -13,6 +13,25 @@
 #buttonStop {
 
 -fx-background-color: green;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+
+}
+
+
+#buttonDec {
+
+-fx-background-color: grey;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+
+}
+
+#buttonInc {
+
+-fx-background-color: grey;
     -fx-font-family: "Verdana";
     -fx-font-size: 20px;
     -fx-text-fill: white;

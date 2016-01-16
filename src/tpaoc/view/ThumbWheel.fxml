@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="tpaoc.view.ThumbWheelFx" id="AnchorPane" prefHeight="40" prefWidth="100.0"  xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+
+	<children>
+				<Slider fx:id="sliderThumb" layoutX="50.0" layoutY="238.0" prefHeight="40.0" prefWidth="349.0" />
+	</children>
+
+
+</AnchorPane>

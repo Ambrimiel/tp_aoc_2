@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:controller="tpaoc.view.LedFx" id="AnchorPane"  xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+
+	<children>
+	
+		<Circle fx:id="led" fill="WHITE" layoutX="620.0" layoutY="120.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+
+	</children>
+
+
+</Pane>

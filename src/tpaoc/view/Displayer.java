@@ -8,20 +8,25 @@ import java.util.HashMap;
  * @author Guillou-Rault
  *
  */
-public class LEDManager implements ILEDManager {
+public class Displayer implements IDisplayer {
 	
 	/**
 	 * The leds.
 	 */
-	HashMap<Integer, LED> myLeds;
+	HashMap<Integer, LedFx> myLeds;
+	
+	/**
+	 * Numero of led;
+	 */
+	private int numLED;
 	
 	/**
 	 * Manager for leds.
 	 */
-	public LEDManager() {
-		myLeds = new HashMap<Integer, LED>();
-		myLeds.put(1, new LED());
-		myLeds.put(2, new LED());
+	public Displayer() {
+		myLeds = new HashMap<Integer, LedFx>();
+		myLeds.put(1, new LedFx());
+		myLeds.put(2, new LedFx());
 	}
 	
 	
@@ -29,7 +34,7 @@ public class LEDManager implements ILEDManager {
 	 * @see tpaoc.view.ILEDManager#turnOnLED(int)
 	 */
 	public final void turnOnLED(int numLED) {
-		LED myled = myLeds.get((Integer) numLED);
+		LedFx myled = myLeds.get((Integer) numLED);
 		myled.setActivated(true);
 	}
 
@@ -37,8 +42,14 @@ public class LEDManager implements ILEDManager {
 	 * @see tpaoc.view.ILEDManager#turnOffLED(int)
 	 */
 	public final void turnOffLED(int numLED) {
-		LED myled = myLeds.get((Integer) numLED);
+		LedFx myled = myLeds.get((Integer) numLED);
 		myled.setActivated(false);
+	}
+
+
+	@Override
+	public void setNumLED(int i) {
+		this.numLED = i;
 	}
 
 }

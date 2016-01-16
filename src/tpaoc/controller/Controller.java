@@ -87,7 +87,6 @@ public class Controller implements IController {
 	public final void startEngine() {
 		if (!engine.isStarted()) {
 			engine.setStarted(true);
-
 			// et modifier l'apparence des boutons
 		}
 	}
