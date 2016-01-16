@@ -5,6 +5,8 @@ package tpaoc.controller;
 
 import java.util.Observer;
 
+import tpaoc.view.IThumbWheel;
+
 /**
  * <h1> Metronome AOC. </h1>
  * @author Guillou-Rault
@@ -43,4 +45,7 @@ public interface IController extends Observer {
 	 * Function called by the view. Decreases the number of time by measure.
 	 */
 	void decreaseTimeByMeasure();
+	
+	
+	void updateThumbWheel(IThumbWheel tw);
 }
