@@ -7,7 +7,6 @@ import tpaoc.model.Constants;
 import tpaoc.model.Engine;
 import tpaoc.model.IClock;
 import tpaoc.model.IEngine;
-import tpaoc.view.ThumbWheel;
 import tpaoc.view.View;
 
 /**
@@ -75,14 +74,12 @@ public class Controller implements IController {
 		//a utiliser avec la clock
 	}
 
-	
-	public void updateThumbWheel(ThumbWheel tw){
-		
-		float position = tw.getPosition();
-		engine.setTempo(Math.round(position));
-		
-	}
-	
+	/*
+	 * =========================================================================
+	 * FXML METHODS called by the view
+	 * =========================================================================
+	 */
+
 
 	/**
 	 * @see tpaoc.controller.IController#startEngine()
