@@ -55,14 +55,6 @@ public class View implements IView {
 			buttonStop.setText("stop");
 			buttonStop.setId("buttonStop");
 			
-			
-			
-			
-			
-			
-			
-			
-			
 			root.getChildren().addAll(parents);
 			
 		} catch (IOException e) {
@@ -107,7 +99,7 @@ public class View implements IView {
 	}
 	
 	@Override
-	public void attachHandlers(IController controller) {
+	public void setController(IController controller) {
 		
 		buttonStart.setCommand(() -> controller.startEngine());
 	}

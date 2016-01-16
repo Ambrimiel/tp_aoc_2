@@ -35,7 +35,7 @@ public class Main extends Application {
 			
 			View view = new View();
 			controller = new Controller(view);
-			
+			view.setController(controller);
 			
 			
 			Scene scene = new Scene(view.getRoot(),700,500);

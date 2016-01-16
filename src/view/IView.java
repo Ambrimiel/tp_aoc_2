@@ -8,7 +8,7 @@ public interface IView {
 	
 	IButton getButtonStart();
 
-	void attachHandlers(IController controller);
+	void setController(IController controller);
 
 //	Parent getRoot();
 	
