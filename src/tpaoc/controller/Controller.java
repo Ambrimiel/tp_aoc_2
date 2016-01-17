@@ -8,6 +8,7 @@ import tpaoc.model.Engine;
 import tpaoc.model.IClock;
 import tpaoc.model.IEngine;
 import tpaoc.view.IThumbWheel;
+import tpaoc.view.IView;
 import tpaoc.view.View;
 
 /**
@@ -35,6 +36,9 @@ public class Controller implements IController {
 	 * The clock.
 	 */
 	private final transient IClock clock;
+	
+	
+	private final transient IView view;
 
 	/*
 	 * =======================================================================
@@ -46,9 +50,10 @@ public class Controller implements IController {
 	 * Main constructor.
 	 * @param guiView.
 	 */
-	public Controller(final View guiView) {
+	public Controller(final View view) {
 		engine = new Engine(this);
 		clock = new Clock();
+		this.view = view;
 	}
 
 	/*
@@ -63,7 +68,9 @@ public class Controller implements IController {
 	public final void markTempo() {
 		
 		// appeler la fonction du controllerView qui gere la led1 et le son ... 
-		//a utiliser avec la clock
+		//va utiliser avec la clock
+		view.markTempo();
+		
 	}
 
 	/**
@@ -73,6 +80,7 @@ public class Controller implements IController {
 		
 		// appeler la fonction du controllerView qui gere la led2 et le son ... 
 		//a utiliser avec la clock
+		view.markMeasure();
 	}
 
 	
