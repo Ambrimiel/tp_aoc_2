@@ -83,6 +83,7 @@ public class Controller implements IController {
 		view.markMeasure();
 	}
 
+
 	
 	public void updateThumbWheel(IThumbWheel tw){
 		
@@ -91,6 +92,7 @@ public class Controller implements IController {
 		
 	}
 	
+
 
 	/**
 	 * @see tpaoc.controller.IController#startEngine()
