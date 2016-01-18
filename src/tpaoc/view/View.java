@@ -7,13 +7,11 @@ import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import tpaoc.commands.ICommand;
 import tpaoc.controller.IController;
 import tpaoc.model.Constants;
 
 
 public class View implements IView {
-
 	
 	/**
 	 * The root layer
@@ -30,12 +28,9 @@ public class View implements IView {
 	
 	private IDisplayer ledManager;
 
-	
 	private ThumbWheelFx sliderThumb;
 	
 	private IDisplayTempo displayTempo;
-	
-	
 	
 	
 	
@@ -49,8 +44,6 @@ public class View implements IView {
 	private static final String FXML_LABEL = "Label.fxml";
 	
 
-	private ICommand startCommand;
-	
 	
 	public View() {
 		root = new AnchorPane();
@@ -122,17 +115,6 @@ public class View implements IView {
 		return root;
 	}
 	
-
-/*	
-	public IDisplayer getTicLed() {
-		return ticLed;
-	}
-
-	public IDisplayer getTacLed() {
-		return tacLed;
-	}
-*/
-
 	/**
 	 * @param root the root to set
 	 */
@@ -142,7 +124,7 @@ public class View implements IView {
 	
 	
 	@Override
-	public void setController(IController controller) {
+	public void setCommand(IController controller) {
 
 		buttonStart.setCommand(() -> controller.startEngine());
 		buttonStop.setCommand(() -> controller.stopEngine());
@@ -150,7 +132,6 @@ public class View implements IView {
 		buttonDecreaseTimeByMeasure.setCommand(() -> controller.decreaseTimeByMeasure());
 		
 		sliderThumb.setCommand(() -> controller.updateThumbWheel(sliderThumb));
-		
 	}
 	
 	public void flash(int led) {
@@ -162,7 +143,6 @@ public class View implements IView {
 			e.printStackTrace();
 		}
 		ledManager.turnOffLED(led);
-	
 	}
 
 
@@ -195,8 +175,6 @@ public class View implements IView {
 	 */
 	public ThumbWheelFx getSliderThumb() {
 		return sliderThumb;
-	}
-	
-	
+	}	
 
 }

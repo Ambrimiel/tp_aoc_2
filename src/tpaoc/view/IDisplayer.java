@@ -18,10 +18,9 @@ public interface IDisplayer {
 	 * @param numLED : int
 	 */
 	void turnOffLED(int numLED);
-
 	
 	/**
-	 * 
+	 * Adds a led to the ArrayList.
 	 */
 	void addLed(LedFx led);
 	

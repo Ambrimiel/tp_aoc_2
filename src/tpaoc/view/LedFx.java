@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import tpaoc.commands.ICommand;
 
 /**
  * 
@@ -22,12 +21,6 @@ public class LedFx implements Initializable {
 	 */
 	@FXML
 	private transient Circle led;
-
-
-	/**
-	 * 
-	 */
-	private ICommand command;
 
 	/**
 	 * 
@@ -53,7 +46,7 @@ public class LedFx implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		System.err.println("Object  led added in view : ");	
+		System.out.println("Object  led added in view : ");	
 	}
 
 

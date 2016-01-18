@@ -82,9 +82,5 @@ public class Clock implements IClock {
 		timer = new Timer();
 	}
 
-
-	
-
-	
 	
 }

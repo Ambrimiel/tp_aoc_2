@@ -7,7 +7,7 @@ public interface IView {
 	
 	IButton getButtonStart();
 
-	void setController(IController controller);
+	void setCommand(IController controller);
 
 //	Parent getRoot();
 	
