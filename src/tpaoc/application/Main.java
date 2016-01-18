@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tpaoc.controller.Controller;
 import tpaoc.controller.IController;
-import tpaoc.view.ButtonFx;
 import tpaoc.view.View;
 
 

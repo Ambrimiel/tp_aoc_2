@@ -2,10 +2,6 @@ package tpaoc.view;
 
 import java.util.ArrayList;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
-
 /**
  * 
  * <h1> Metronome AOC. </h1>
@@ -18,8 +14,6 @@ public class Displayer implements IDisplayer {
 	 * The leds.
 	 */
 	private ArrayList<LedFx> myLeds;
-	
-	private int textTempo;
 	
 	private DisplayTempoImplFx displayTempo;
 	

@@ -1,6 +1,5 @@
 package tpaoc.view;
 
-import javafx.scene.control.Label;
 
 /**
  * 
