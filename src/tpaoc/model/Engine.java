@@ -255,9 +255,7 @@ public class Engine extends Observable implements IEngine {
 		if (tempo < Constants.MIN_TEMPO) { tempo = Constants.MIN_TEMPO; }
 		if (tempo > Constants.MAX_TEMPO) { tempo = Constants.MAX_TEMPO; }
 		this.period = (Constants.NB_MS_BY_MINUTE / tempo);
-		
-		setChanged();
-		notifyObservers();
+	
 		return period;
 	}
 

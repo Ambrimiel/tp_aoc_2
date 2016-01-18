@@ -105,6 +105,7 @@ public class Controller implements IController {
 	 */
 	public final void startEngine() {
 		if (!engine.isStarted()) {
+			engine.calculatePeriod();
 			engine.setStarted(true);
 			System.out.println("engine is started " + engine.getTempo());
 			// et modifier l'apparence des boutons

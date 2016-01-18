@@ -28,9 +28,8 @@ public class View implements IView {
 	
 	private IButton buttonIncreaseTimeByMeasure;
 	
-	private IDisplayer ticLed;
-	
-	private IDisplayer tacLed;
+	private IDisplayer ledManager;
+
 	
 	private ThumbWheelFx sliderThumb;
 	
@@ -54,20 +53,17 @@ public class View implements IView {
 	
 	
 	public View() {
-		
-		
-		
 		root = new AnchorPane();
 		
 		List<Parent> parents = new ArrayList<>();
-		
+		ledManager = new Displayer();
 		try {
-			
-			
-			ticLed = add(parents, FXML_LED, 600,150);
-			ticLed.setNumLED(1);
-			tacLed = add(parents, FXML_LED, 600,300);
-			tacLed.setNumLED(2);
+			LedFx led1 = add(parents, FXML_LED, 600,150);
+			led1.setId(1);
+			ledManager.addLed(led1);
+			LedFx led2 = add(parents, FXML_LED, 600,300);
+			led2.setId(2);
+			ledManager.addLed(led2);
 			
 			buttonStart = add(parents, FXML_BUTTON, 30, 350);
 			buttonStart.setText("Start");
@@ -127,22 +123,15 @@ public class View implements IView {
 	}
 	
 
-
-	/**
-	 * @return the ticLed
-	 */
+/*	
 	public IDisplayer getTicLed() {
 		return ticLed;
 	}
 
-
-	/**
-	 * @return the tacLed
-	 */
 	public IDisplayer getTacLed() {
 		return tacLed;
 	}
-
+*/
 
 	/**
 	 * @param root the root to set
@@ -165,18 +154,15 @@ public class View implements IView {
 	}
 	
 	public void flash(int led) {
-		tacLed.turnOnLED(led);
+		ledManager.turnOnLED(led);
 		try {
 			Thread.sleep(70);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		tacLed.turnOffLED(led);
-	}
+		ledManager.turnOffLED(led);
 	
-	public void labelTempoChange(String newLabel) {
-		
 	}
 
 

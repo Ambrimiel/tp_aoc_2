@@ -19,10 +19,10 @@ public interface IDisplayer {
 	 */
 	void turnOffLED(int numLED);
 
-	/**
-	 * @param i
-	 */
-	void setNumLED(int i);
 	
+	/**
+	 * 
+	 */
+	void addLed(LedFx led);
 	
 }

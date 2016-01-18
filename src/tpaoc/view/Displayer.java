@@ -1,6 +1,8 @@
 package tpaoc.view;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+
+import javafx.scene.paint.Color;
 
 /**
  * 
@@ -13,20 +15,14 @@ public class Displayer implements IDisplayer {
 	/**
 	 * The leds.
 	 */
-	HashMap<Integer, LedFx> myLeds;
+	ArrayList<LedFx> myLeds;
 	
-	/**
-	 * Numero of led;
-	 */
-	private int numLED;
 	
 	/**
 	 * Manager for leds.
 	 */
 	public Displayer() {
-		myLeds = new HashMap<Integer, LedFx>();
-		myLeds.put(1, new LedFx());
-		myLeds.put(2, new LedFx());
+		myLeds = new ArrayList<LedFx>();
 	}
 	
 	
@@ -34,7 +30,8 @@ public class Displayer implements IDisplayer {
 	 * @see tpaoc.view.ILEDManager#turnOnLED(int)
 	 */
 	public final void turnOnLED(int numLED) {
-		LedFx myled = myLeds.get((Integer) numLED);
+		LedFx myled = myLeds.get(numLED-1);
+		myled.turnOnLED();
 		myled.setActivated(true);
 	}
 
@@ -42,14 +39,14 @@ public class Displayer implements IDisplayer {
 	 * @see tpaoc.view.ILEDManager#turnOffLED(int)
 	 */
 	public final void turnOffLED(int numLED) {
-		LedFx myled = myLeds.get((Integer) numLED);
+		LedFx myled = myLeds.get(numLED-1);
+		myled.turnOffLED();
 		myled.setActivated(false);
 	}
-
-
-	@Override
-	public void setNumLED(int i) {
-		this.numLED = i;
+	
+	
+	public void addLed(LedFx led){
+		myLeds.add(led);
 	}
 
 }

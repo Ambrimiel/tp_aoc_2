@@ -15,7 +15,7 @@ import tpaoc.commands.ICommand;
  * @author Guillou-Rault
  *
  */
-public class LedFx implements IDisplayer, Initializable {
+public class LedFx implements Initializable {
 
 	/**
 	 * The circle who represent a LED for the tempo.
@@ -33,6 +33,8 @@ public class LedFx implements IDisplayer, Initializable {
 	 * 
 	 */
 	private boolean activated;
+	
+	private int id;
 
 	/**
 	 * @return activated .
@@ -54,26 +56,25 @@ public class LedFx implements IDisplayer, Initializable {
 		System.err.println("Object  led added in view : ");	
 	}
 
-	@Override
-	public void turnOnLED(int numLED) {
-		System.out.println("turnOnLED" + numLED);
-		if (numLED == 1){
+
+	public void turnOnLED() {
+		System.out.println("turnOnLED " + id);
+		if (id == 1){
 			led.setFill(Color.YELLOW);
 		}
-		if (numLED == 2){
+		if (id == 2){
 			led.setFill(Color.BLUE);
 		}
 	}
 
-	@Override
-	public void turnOffLED(int numLED) {
+
+	public void turnOffLED() {
 		led.setFill(Color.WHITE);
 	}
-
-	@Override
-	public void setNumLED(int i) {
-		//	led.setFill(Color.GREEN);
-
+	
+	
+	public void setId(int number){
+		this.id = number;
 	}
 
 }
