@@ -174,6 +174,10 @@ public class View implements IView {
 		}
 		tacLed.turnOffLED(led);
 	}
+	
+	public void labelTempoChange(String newLabel) {
+		
+	}
 
 
 	/**
