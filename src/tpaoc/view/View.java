@@ -189,6 +189,10 @@ public class View implements IView {
 		
 	
 	}
+	
+	public void labelTempoChange(String newLabel) {
+		
+	}
 
 
 	/**

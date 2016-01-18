@@ -2,6 +2,7 @@ package tpaoc.controller;
 
 import java.util.Observable;
 
+import javafx.scene.paint.Color;
 import tpaoc.model.Clock;
 import tpaoc.model.Constants;
 import tpaoc.model.Engine;
@@ -36,12 +37,12 @@ public class Controller implements IController {
 	 * The clock.
 	 */
 	private final transient IClock clock;
-	
+
 	/**
 	 * @param guiView
 	 */
 	private final transient SoundEmettor soundEmettor;
-	
+
 	private final transient View guiView;
 
 	/*
@@ -71,13 +72,10 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#markTempo()
 	 */
 	public final void markTempo() {
-		System.out.println("markTempo !!!");
-		//guiView.getButtonStart().setText("go");
-		soundEmettor.makeSound();
-		guiView.flash(1);
-		System.out.println("engine tempo ?" + engine.getTempo());
-		// appeler la fonction du controllerView qui gere la led1 et le son ... 
-		//a utiliser avec la clock
+		clock.activateAfterWait(() -> guiView.flash(1),
+				Constants.FLASH_TIME);
+		clock.activateAfterWait(() -> soundEmettor.makeSound(),
+				Constants.FLASH_TIME);
 	}
 
 	/**
@@ -93,16 +91,16 @@ public class Controller implements IController {
 	}
 
 
-	
+
 	public void updateThumbWheel(IThumbWheel tw){
-		
+
 		float position = tw.getPosition();
 		engine.setTempo(Math.round(position));
-		
-		
-		
+
+
+
 	}
-	
+
 
 
 	/**
@@ -127,13 +125,13 @@ public class Controller implements IController {
 
 			// return to defaults values
 			engine.setTempo(Constants.DEFAULT_TEMPO);
-			
+
 			// remettre le texte du label du tempo au défaut
 			engine.setNbTimeByM(Constants.DEF_TEMP_BY_TAC);
 			// remettre les autres labels aux valeurs par défaut
 
 			// et modifier l'apparence des boutons
-			
+
 		}
 	}
 
@@ -179,7 +177,7 @@ public class Controller implements IController {
 
 	}
 
-	
+
 	/**
 	 * Observable update method
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
