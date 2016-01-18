@@ -1,4 +1,7 @@
 package tpaoc.view;
+
+import javafx.scene.control.Label;
+
 /**
  * 
  * <h1> Metronome AOC. </h1>
@@ -19,9 +22,20 @@ public interface IDisplayer {
 	 */
 	void turnOffLED(int numLED);
 	
+	
+	/**
+	 * Displays the tempo.
+	 * @param tempo
+	 */
+	void displayTempo(int tempo);
+	
+	
+	// Getters and setters
 	/**
 	 * Adds a led to the ArrayList.
 	 */
 	void addLed(LedFx led);
-	
+
+	void setDisplayTempo(DisplayTempoImplFx myDisplayTempo);
+
 }

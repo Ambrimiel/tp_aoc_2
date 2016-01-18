@@ -26,11 +26,9 @@ public class View implements IView {
 	
 	private IButton buttonIncreaseTimeByMeasure;
 	
-	private IDisplayer ledManager;
+	private IDisplayer myDisplayer;
 
 	private ThumbWheelFx sliderThumb;
-	
-	private IDisplayTempo displayTempo;
 	
 	
 	
@@ -49,14 +47,14 @@ public class View implements IView {
 		root = new AnchorPane();
 		
 		List<Parent> parents = new ArrayList<>();
-		ledManager = new Displayer();
+		myDisplayer = new Displayer();
 		try {
 			LedFx led1 = add(parents, FXML_LED, 600,150);
 			led1.setId(1);
-			ledManager.addLed(led1);
+			myDisplayer.addLed(led1);
 			LedFx led2 = add(parents, FXML_LED, 600,300);
 			led2.setId(2);
-			ledManager.addLed(led2);
+			myDisplayer.addLed(led2);
 			
 			buttonStart = add(parents, FXML_BUTTON, 30, 350);
 			buttonStart.setText("Start");
@@ -77,8 +75,10 @@ public class View implements IView {
 			sliderThumb = add(parents, FXML_THUMB, 0, 0);
 			sliderThumb.setPosition(Constants.DEFAULT_TEMPO);
 			
-			displayTempo = add(parents, FXML_LABEL, 0,0);
-			displayTempo.setTextTempo(Constants.DEFAULT_TEMPO);
+			
+			DisplayTempoImplFx myDisplayTempo = add(parents, FXML_LABEL, 0,0);
+			myDisplayer.setDisplayTempo(myDisplayTempo);
+			myDisplayer.displayTempo(Constants.DEFAULT_TEMPO);
 			
 			root.getChildren().addAll(parents);
 			
@@ -135,14 +135,14 @@ public class View implements IView {
 	}
 	
 	public void flash(int led) {
-		ledManager.turnOnLED(led);
+		myDisplayer.turnOnLED(led);
 		try {
 			Thread.sleep(70);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ledManager.turnOffLED(led);
+		myDisplayer.turnOffLED(led);
 	}
 
 

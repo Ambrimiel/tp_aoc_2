@@ -31,7 +31,7 @@ public class DisplayTempoImplFx implements IDisplayTempo, Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		System.err.println("adding label tempo");
+		System.out.println("adding label tempo");
 		
 	}
 
