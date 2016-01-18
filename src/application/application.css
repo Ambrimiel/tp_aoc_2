@@ -1,20 +1,55 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
+.root {
+	-fx-background-color: #D1C4E9; /* #F5F5F5; */ 
+	-fx-color: #fff;
+}
 
 #buttonStart {
 
--fx-background-color: green;
+	-fx-background-color: grey;
+  /*  -fx-background-image: url("../../styles/offa.png"); */
+    -fx-background-size: 55.0 55.0;
+    -fx-background-position: center ;
+    -fx-background-repeat: no-repeat;
     -fx-font-family: "Verdana";
-    -fx-font-size: 20px;
+    -fx-font-size: 25px;
     -fx-text-fill: white;
 
 }
 
+#buttonStart:pressed {
+
+	-fx-background-color: #bbb;
+   /*  -fx-background-image: url("../../styles/offb.png"); */
+    -fx-background-size: 55.0 55.0;
+    -fx-background-position: center ;
+    -fx-background-repeat: no-repeat;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 26px;
+    -fx-text-fill: white;
+
+}
+
+
+
 #buttonStop {
 
--fx-background-color: green;
+	-fx-background-color: grey;
     -fx-font-family: "Verdana";
-    -fx-font-size: 20px;
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+
+}
+
+#buttonStop:pressed {
+
+	-fx-background-color: #bbb;
+    -fx-background-size: 55.0 55.0;
+    -fx-background-position: center ;
+    -fx-background-repeat: no-repeat;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 26px;
     -fx-text-fill: white;
 
 }
@@ -22,9 +57,21 @@
 
 #buttonDec {
 
--fx-background-color: grey;
+	-fx-background-color: grey;
     -fx-font-family: "Verdana";
-    -fx-font-size: 20px;
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+
+}
+
+#buttonDec:pressed {
+
+	-fx-background-color: #bbb;
+    -fx-background-size: 55.0 55.0;
+    -fx-background-position: center ;
+    -fx-background-repeat: no-repeat;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 26px;
     -fx-text-fill: white;
 
 }
@@ -33,7 +80,27 @@
 
 -fx-background-color: grey;
     -fx-font-family: "Verdana";
-    -fx-font-size: 20px;
+    -fx-font-size: 25px;
     -fx-text-fill: white;
 
+}
+
+#buttonInc:pressed {
+
+	-fx-background-color: #bbb;
+    -fx-background-size: 55.0 55.0;
+    -fx-background-position: center ;
+    -fx-background-repeat: no-repeat;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 26px;
+    -fx-text-fill: white;
+
+}
+
+
+#labelTempo {
+	
+	-fx-background-color: #fff;
+	 -fx-font-size: 60px;
+    -fx-text-fill: black;
 }

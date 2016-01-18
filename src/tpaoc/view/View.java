@@ -24,9 +24,9 @@ public class View implements IView {
 	
 	private IButton buttonStop;
 	
-	private IButton decreaseTimeByMeasure;
+	private IButton buttonDecreaseTimeByMeasure;
 	
-	private IButton increaseTimeByMeasure;
+	private IButton buttonIncreaseTimeByMeasure;
 	
 	private IDisplayer ticLed;
 	
@@ -34,16 +34,20 @@ public class View implements IView {
 	
 	private ThumbWheelFx sliderThumb;
 	
+	private IDisplayTempo displayTempo;
+	
 	
 	
 	
 	
 	/* template for the button object */
 	private static final String FXML_BUTTON = "Button.fxml";
-	
+	/* template for the led object */	
 	private static final String FXML_LED = "Led.fxml";
-	
+	/* template for the Slider object */		
 	private static final String FXML_THUMB = "ThumbWheel.fxml";
+	/* template for the Slider object */		
+	private static final String FXML_LABEL = "Label.fxml";
 	
 
 	private ICommand startCommand;
@@ -60,35 +64,32 @@ public class View implements IView {
 		try {
 			
 			
-			ticLed = create(parents, FXML_LED, 30,30);
+			ticLed = add(parents, FXML_LED, 600,150);
 			ticLed.setNumLED(1);
-			tacLed = create(parents, FXML_LED, 30,30);
+			tacLed = add(parents, FXML_LED, 600,300);
 			tacLed.setNumLED(2);
 			
-			buttonStart = create(parents, FXML_BUTTON, 30, 350);
+			buttonStart = add(parents, FXML_BUTTON, 30, 350);
 			buttonStart.setText("Start");
 			buttonStart.setId("buttonStart");
 			
-			buttonStop = create(parents, FXML_BUTTON, 150, 350);
+			buttonStop = add(parents, FXML_BUTTON, 150, 350);
 			buttonStop.setText("stop");
 			buttonStop.setId("buttonStop");
 			
-			decreaseTimeByMeasure = create(parents, FXML_BUTTON, 270, 350);
-			decreaseTimeByMeasure.setText("dec");
-			decreaseTimeByMeasure.setId("buttonDec");
+			buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
+			buttonDecreaseTimeByMeasure.setText("dec");
+			buttonDecreaseTimeByMeasure.setId("buttonDec");
 			
-			increaseTimeByMeasure = create(parents, FXML_BUTTON, 390, 350);
-			increaseTimeByMeasure.setText("inc");
-			increaseTimeByMeasure.setId("buttonInc");
+			buttonIncreaseTimeByMeasure = add(parents, FXML_BUTTON, 390, 350);
+			buttonIncreaseTimeByMeasure.setText("inc");
+			buttonIncreaseTimeByMeasure.setId("buttonInc");
 			
-			sliderThumb = create(parents, FXML_THUMB, 0, 10);
+			sliderThumb = add(parents, FXML_THUMB, 0, 0);
 			sliderThumb.setPosition(Constants.DEFAULT_TEMPO);
 			
-			
-			
-			
-
-
+			displayTempo = add(parents, FXML_LABEL, 0,0);
+			displayTempo.setTextTempo(Constants.DEFAULT_TEMPO);
 			
 			root.getChildren().addAll(parents);
 			
@@ -103,7 +104,7 @@ public class View implements IView {
 		return buttonStart;
 	}
 
-	private <X> X create(List<Parent> parents, String fxml, int x, int y) throws IOException {
+	private <X> X add(List<Parent> parents, String fxml, int x, int y) throws IOException {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader();
 
@@ -150,14 +151,77 @@ public class View implements IView {
 		this.root = root;
 	}
 	
+	
 	@Override
 	public void setController(IController controller) {
-		
+
 		buttonStart.setCommand(() -> controller.startEngine());
 		buttonStop.setCommand(() -> controller.stopEngine());
+		buttonIncreaseTimeByMeasure.setCommand(() -> controller.increaseTimeByMeasure());
+		buttonDecreaseTimeByMeasure.setCommand(() -> controller.decreaseTimeByMeasure());
 		
 		sliderThumb.setCommand(() -> controller.updateThumbWheel(sliderThumb));
 		
 	}
+	
+	public void flash(int led) {
+		if (led == 1) {
+			ticLed.turnOnLED(1);
+			try {
+				Thread.sleep(70);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ticLed.turnOffLED(1);
+		}
+		
+		if (led == 2) {
+			tacLed.turnOnLED(2);
+			try {
+				Thread.sleep(70);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			tacLed.turnOffLED(2);
+		}
+		
+	
+	}
+
+
+	/**
+	 * @return the buttonStop
+	 */
+	public IButton getButtonStop() {
+		return buttonStop;
+	}
+
+
+	/**
+	 * @return the buttonDecreaseTimeByMeasure
+	 */
+	public IButton getButtonDecreaseTimeByMeasure() {
+		return buttonDecreaseTimeByMeasure;
+	}
+
+
+	/**
+	 * @return the buttonIncreaseTimeByMeasure
+	 */
+	public IButton getButtonIncreaseTimeByMeasure() {
+		return buttonIncreaseTimeByMeasure;
+	}
+
+
+	/**
+	 * @return the sliderThumb
+	 */
+	public ThumbWheelFx getSliderThumb() {
+		return sliderThumb;
+	}
+	
+	
 
 }

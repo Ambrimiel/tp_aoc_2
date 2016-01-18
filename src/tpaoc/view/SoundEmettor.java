@@ -1,5 +1,7 @@
 package tpaoc.view;
 
+import java.awt.Toolkit;
+
 /**
  * 
  * <h1> Metronome AOC. </h1>
@@ -12,7 +14,7 @@ public class SoundEmettor implements ISoundEmettor {
 	 * @see tpaoc.view.ISoundEmettor#makeSound()
 	 */
 	public void makeSound() {
-		// TODO Auto-generated method stub
+		Toolkit.getDefaultToolkit().beep();
 		
 	}
 

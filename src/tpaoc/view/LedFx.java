@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import tpaoc.commands.ICommand;
 
@@ -15,19 +16,19 @@ import tpaoc.commands.ICommand;
  *
  */
 public class LedFx implements IDisplayer, Initializable {
-	
+
 	/**
 	 * The circle who represent a LED for the tempo.
 	 */
 	@FXML
 	private transient Circle led;
-	
-	
+
+
 	/**
 	 * 
 	 */
 	private ICommand command;
-	
+
 	/**
 	 * 
 	 */
@@ -46,32 +47,33 @@ public class LedFx implements IDisplayer, Initializable {
 	public final void setActivated(final boolean pActivated) {
 		this.activated = pActivated;
 	}
-	
-	
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-
-		    System.err.println("Object  led added in view : ");	
-		
-}
+		System.err.println("Object  led added in view : ");	
+	}
 
 	@Override
 	public void turnOnLED(int numLED) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("turnOnLED" + numLED);
+		if (numLED == 1){
+			led.setFill(Color.YELLOW);
+		}
+		if (numLED == 2){
+			led.setFill(Color.BLUE);
+		}
 	}
 
 	@Override
 	public void turnOffLED(int numLED) {
-		// TODO Auto-generated method stub
-		
+		led.setFill(Color.WHITE);
 	}
 
 	@Override
 	public void setNumLED(int i) {
-		// TODO Auto-generated method stub
-		
+		//	led.setFill(Color.GREEN);
+
 	}
-	
+
 }

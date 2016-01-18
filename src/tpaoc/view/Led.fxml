@@ -15,7 +15,7 @@
 
 	<children>
 	
-		<Circle fx:id="led" fill="WHITE" layoutX="620.0" layoutY="120.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+		<Circle fx:id="led" fill="WHITE"  radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
 
 	</children>
 

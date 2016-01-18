@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="tpaoc.view.DisplayTempoImplFx" id="AnchorPane" prefHeight="40" prefWidth="100.0"  xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+
+        <Label fx:id="labelTempo" layoutX="40" layoutY="135.0" prefHeight="46.0" prefWidth="450.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="#5d5a5a" wrapText="true">
+		</Label>
+
+
+</AnchorPane>

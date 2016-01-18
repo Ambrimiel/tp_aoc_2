@@ -15,7 +15,7 @@ import tpaoc.view.View;
  * <h2><i>Project name : </i>Metronome</h2>
  * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
  * <p><i>CLass The Controller</i>. The Front controller, is a class to
- * "dÃ©couple" the view and the model.</p>
+ * "d�couple" the view and the model.</p>
  * <pre>By convention the tic is the Tempo's  and tac is Measure's name 
  * for this Metronome.</pre>
  */
@@ -128,9 +128,9 @@ public class Controller implements IController {
 			// return to defaults values
 			engine.setTempo(Constants.DEFAULT_TEMPO);
 			
-			// remettre le texte du label du tempo au dÃ©faut
+			// remettre le texte du label du tempo au d�faut
 			engine.setNbTimeByM(Constants.DEF_TEMP_BY_TAC);
-			// remettre les autres labels aux valeurs par dÃ©faut
+			// remettre les autres labels aux valeurs par d�faut
 
 			// et modifier l'apparence des boutons
 			
@@ -152,7 +152,7 @@ public class Controller implements IController {
 
 			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
 			//  changer le texte du label des mesures
-			// et celui de la pÃ©riode
+			// et celui de la p�riode
 		} else {
 			engine.setNbTimeByM(Constants.MAX_TEMPO_BY_TAC);
 		}
@@ -172,7 +172,7 @@ public class Controller implements IController {
 			final int period = engine.calculatePeriod();	
 			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
 			//  changer le texte du label des mesures
-			// et celui de la pÃ©riode
+			// et celui de la p�riode
 		} else {
 			engine.setNbTimeByM(Constants.MIN_TEMPO);
 		}

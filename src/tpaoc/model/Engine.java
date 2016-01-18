@@ -140,6 +140,8 @@ public class Engine extends Observable implements IEngine {
 	 */
 	public void setStarted(final boolean pStarted) {
 		this.started = pStarted;
+		
+		System.err.println("SetStarted !!!!" + pStarted);
 		// setting updated to false so the controller will know
 		updatedStarted = false;
 
