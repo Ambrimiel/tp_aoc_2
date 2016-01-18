@@ -15,7 +15,7 @@ import tpaoc.view.View;
  * <h2><i>Project name : </i>Metronome</h2>
  * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
  * <p><i>CLass The Controller</i>. The Front controller, is a class to
- * "découple" the view and the model.</p>
+ * "dï¿½couple" the view and the model.</p>
  * <pre>By convention the tic is the Tempo's  and tac is Measure's name 
  * for this Metronome.</pre>
  */
@@ -71,10 +71,9 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#markTempo()
 	 */
 	public final void markTempo() {
-		System.out.println("markTempo !!!");
 		//guiView.getButtonStart().setText("go");
-		soundEmettor.makeSound();
 		guiView.flash(1);
+		soundEmettor.makeSound();
 		System.out.println("engine tempo ?" + engine.getTempo());
 		// appeler la fonction du controllerView qui gere la led1 et le son ... 
 		//a utiliser avec la clock
@@ -111,7 +110,7 @@ public class Controller implements IController {
 	public final void startEngine() {
 		if (!engine.isStarted()) {
 			engine.setStarted(true);
-			System.out.println("engine tempo ? in start " + engine.getTempo());
+			System.out.println("engine is started " + engine.getTempo());
 			// et modifier l'apparence des boutons
 		}
 	}
@@ -121,16 +120,16 @@ public class Controller implements IController {
 	 */
 	public final void stopEngine() {
 		if (engine.isStarted()) {
-			System.out.println("engine tempo ? in stop " + engine.getTempo());
+			System.out.println("engine is stopped " + engine.getTempo());
 			// et modifier l'apparence des boutons
 			engine.setStarted(false);
 
 			// return to defaults values
 			engine.setTempo(Constants.DEFAULT_TEMPO);
 			
-			// remettre le texte du label du tempo au défaut
+			// remettre le texte du label du tempo au dï¿½faut
 			engine.setNbTimeByM(Constants.DEF_TEMP_BY_TAC);
-			// remettre les autres labels aux valeurs par défaut
+			// remettre les autres labels aux valeurs par dï¿½faut
 
 			// et modifier l'apparence des boutons
 			
@@ -152,7 +151,7 @@ public class Controller implements IController {
 
 			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
 			//  changer le texte du label des mesures
-			// et celui de la période
+			// et celui de la pï¿½riode
 		} else {
 			engine.setNbTimeByM(Constants.MAX_TEMPO_BY_TAC);
 		}
@@ -172,7 +171,7 @@ public class Controller implements IController {
 			final int period = engine.calculatePeriod();	
 			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
 			//  changer le texte du label des mesures
-			// et celui de la période
+			// et celui de la pï¿½riode
 		} else {
 			engine.setNbTimeByM(Constants.MIN_TEMPO);
 		}

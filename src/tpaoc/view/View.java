@@ -165,29 +165,14 @@ public class View implements IView {
 	}
 	
 	public void flash(int led) {
-		if (led == 1) {
-			ticLed.turnOnLED(1);
-			try {
-				Thread.sleep(70);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			ticLed.turnOffLED(1);
+		tacLed.turnOnLED(led);
+		try {
+			Thread.sleep(70);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		if (led == 2) {
-			tacLed.turnOnLED(2);
-			try {
-				Thread.sleep(70);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			tacLed.turnOffLED(2);
-		}
-		
-	
+		tacLed.turnOffLED(led);
 	}
 
 
