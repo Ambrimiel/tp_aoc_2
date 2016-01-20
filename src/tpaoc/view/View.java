@@ -56,28 +56,28 @@ public class View implements IView {
 			led2.setId(2);
 			myDisplayer.addLed(led2);
 			
-			//buttonStart = new ButtonFx();
 			buttonStart = add(parents, FXML_BUTTON, 30, 350);
 			buttonStart.setText("Start");
 			buttonStart.setId("buttonStart");
+			// this line doesn't work
 			keyBoard.addButton(1, buttonStart);
 			
-			//buttonStop = new ButtonFx();
 			buttonStop = add(parents, FXML_BUTTON, 150, 350);
-			buttonStop.setText("stop");
+			buttonStop.setText("Stop");
 			buttonStop.setId("buttonStop");
+			// this line doesn't work
 			keyBoard.addButton(2, buttonStop);
 			
-			//buttonIncreaseTimeByMeasure = new ButtonFx();
 			buttonIncreaseTimeByMeasure = add(parents, FXML_BUTTON, 390, 350);
-			buttonIncreaseTimeByMeasure.setText("inc");
+			buttonIncreaseTimeByMeasure.setText("Inc");
 			buttonIncreaseTimeByMeasure.setId("buttonInc");
+			// this line doesn't work
 			keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
 			
-			//buttonDecreaseTimeByMeasure = new ButtonFx();
 			buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
-			buttonDecreaseTimeByMeasure.setText("dec");
+			buttonDecreaseTimeByMeasure.setText("Dec");
 			buttonDecreaseTimeByMeasure.setId("buttonDec");
+			// this line doesn't work
 			keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 			
 			

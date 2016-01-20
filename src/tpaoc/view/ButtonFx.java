@@ -49,14 +49,15 @@ public class ButtonFx implements IButton, Initializable {
 	// Initialize
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
 	    System.err.println("Object added in view : ");	
-	
+	    
         button.setOnMouseClicked(event -> {
         	
+        	// Setting isPressed at true
         	isPressed = true;
         	System.err.println("The Button + " + button.getId() + " is clicked.");
 
+        	// Executing the associated command
 			if (command != null) {
 				command.execute();
 			} else {
@@ -65,14 +66,15 @@ public class ButtonFx implements IButton, Initializable {
         });
 	}
 
+	
 	@Override
 	public Boolean isPressed() {
 		return isPressed;
 	}
 
+	
 	@Override
 	public void setButton(Button button) {
 		this.button = button;
-		
 	}
 }
