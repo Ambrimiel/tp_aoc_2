@@ -69,4 +69,10 @@ public class ButtonFx implements IButton, Initializable {
 	public Boolean isPressed() {
 		return isPressed;
 	}
+
+	@Override
+	public void setButton(Button button) {
+		this.button = button;
+		
+	}
 }

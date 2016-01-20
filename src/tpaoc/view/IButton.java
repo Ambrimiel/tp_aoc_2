@@ -1,5 +1,6 @@
 package tpaoc.view;
 
+import javafx.scene.control.Button;
 import tpaoc.commands.ICommand;
 
 /**
@@ -18,5 +19,7 @@ public interface IButton  {
 	void setText(String text);
 
 	void setId(String id);
+	
+	void setButton(Button button);
 	
 }
