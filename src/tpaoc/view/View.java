@@ -23,11 +23,6 @@ public class View implements IView {
 	 */
 	private IKeyboard keyBoard;
 	
-	/**
-	 * The keyBoard's buttons
-	 */
-	private IButton buttonStart, buttonStop, buttonIncreaseTimeByMeasure, buttonDecreaseTimeByMeasure;
-	
 	private IDisplayer myDisplayer;
 
 	private ThumbWheelFx sliderThumb;
@@ -48,6 +43,7 @@ public class View implements IView {
 		
 		List<Parent> parents = new ArrayList<>();
 		myDisplayer = new Displayer();
+		keyBoard = new Keyboard();
 		try {
 			LedFx led1 = add(parents, FXML_LED, 600,150);
 			led1.setId(1);
@@ -56,29 +52,25 @@ public class View implements IView {
 			led2.setId(2);
 			myDisplayer.addLed(led2);
 			
-			buttonStart = add(parents, FXML_BUTTON, 30, 350);
+			ButtonFx buttonStart = add(parents, FXML_BUTTON, 30, 350);
 			buttonStart.setText("Start");
 			buttonStart.setId("buttonStart");
-			// this line doesn't work
-			//keyBoard.addButton(1, buttonStart);
+			keyBoard.addButton(1, buttonStart);
 			
-			buttonStop = add(parents, FXML_BUTTON, 150, 350);
+			ButtonFx buttonStop = add(parents, FXML_BUTTON, 150, 350);
 			buttonStop.setText("Stop");
 			buttonStop.setId("buttonStop");
-			// this line doesn't work
-			//keyBoard.addButton(2, buttonStop);
+			keyBoard.addButton(2, buttonStop);
 			
-			buttonIncreaseTimeByMeasure = add(parents, FXML_BUTTON, 390, 350);
+			ButtonFx buttonIncreaseTimeByMeasure = add(parents, FXML_BUTTON, 390, 350);
 			buttonIncreaseTimeByMeasure.setText("Inc");
 			buttonIncreaseTimeByMeasure.setId("buttonInc");
-			// this line doesn't work
-			//keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
+			keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
 			
-			buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
+			ButtonFx buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
 			buttonDecreaseTimeByMeasure.setText("Dec");
 			buttonDecreaseTimeByMeasure.setId("buttonDec");
-			// this line doesn't work
-			//keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
+			keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 			
 			
 			sliderThumb = add(parents, FXML_THUMB, 0, 0);
@@ -127,17 +119,21 @@ public class View implements IView {
 	@Override
 	public void setCommand(IController controller) {
 		// Setting the command for the button and updating it in the keyboard
+		ButtonFx buttonStart = (ButtonFx)keyBoard.getButton(1);
 		buttonStart.setCommand(() -> controller.startEngine());
-		//keyBoard.addButton(1, buttonStart);
+		keyBoard.addButton(1, buttonStart);
 		
+		ButtonFx buttonStop = (ButtonFx)keyBoard.getButton(2);
 		buttonStop.setCommand(() -> controller.stopEngine());
-		//keyBoard.addButton(2, buttonStop);
+		keyBoard.addButton(2, buttonStop);
 		
+		ButtonFx buttonIncreaseTimeByMeasure = (ButtonFx)keyBoard.getButton(3);
 		buttonIncreaseTimeByMeasure.setCommand(() -> controller.increaseTimeByMeasure());
-		//keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
+		keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
 		
+		ButtonFx buttonDecreaseTimeByMeasure = (ButtonFx)keyBoard.getButton(4);
 		buttonDecreaseTimeByMeasure.setCommand(() -> controller.decreaseTimeByMeasure());
-		//keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
+		keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 		
 		sliderThumb.setCommand(() -> controller.updateThumbWheel(sliderThumb));
 	}
