@@ -26,8 +26,6 @@ public class ThumbWheelFx implements IThumbWheel,Initializable {
 	
 	private ICommand command;
 	
-
-
 	/**
 	 * @param command the command to set
 	 */

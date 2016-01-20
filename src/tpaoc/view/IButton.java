@@ -7,14 +7,16 @@ import tpaoc.commands.ICommand;
  */
 public interface IButton  {
 	
+	 Boolean isPressed();
+	
 	/**
 	 * Command for the button
 	 * @param command
 	 */
-	public void setCommand(ICommand command);
+	void setCommand(ICommand command);
 	
-	public void setText(String text);
+	void setText(String text);
 
-	public void setId(String id);
+	void setId(String id);
 	
 }

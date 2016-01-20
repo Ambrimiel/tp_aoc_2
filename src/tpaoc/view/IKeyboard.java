@@ -14,5 +14,14 @@ public interface IKeyboard {
 	 * @return boolean 
 	 */
 	boolean buttonClicked(int numOfButton);
+	
+	/**
+	 * Adds a button in the keyboard
+	 * @param id
+	 * @param button
+	 */
+	void addButton(Integer id, IButton button);
+
+	IButton getButton(int id);
 
 }

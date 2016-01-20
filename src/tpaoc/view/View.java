@@ -18,18 +18,19 @@ public class View implements IView {
 	 */
 	private AnchorPane root;
 	
-	private IButton buttonStart;
+	/**
+	 * The keyBoard
+	 */
+	private IKeyboard keyBoard;
 	
-	private IButton buttonStop;
-	
-	private IButton buttonDecreaseTimeByMeasure;
-	
-	private IButton buttonIncreaseTimeByMeasure;
+	/**
+	 * The keyBoard's buttons
+	 */
+	private IButton buttonStart, buttonStop, buttonIncreaseTimeByMeasure, buttonDecreaseTimeByMeasure;
 	
 	private IDisplayer myDisplayer;
 
 	private ThumbWheelFx sliderThumb;
-	
 	
 	
 	/* template for the button object */
@@ -42,7 +43,6 @@ public class View implements IView {
 	private static final String FXML_LABEL = "Label.fxml";
 	
 
-	
 	public View() {
 		root = new AnchorPane();
 		
@@ -56,21 +56,30 @@ public class View implements IView {
 			led2.setId(2);
 			myDisplayer.addLed(led2);
 			
+			buttonStart = new ButtonFx();
 			buttonStart = add(parents, FXML_BUTTON, 30, 350);
 			buttonStart.setText("Start");
 			buttonStart.setId("buttonStart");
+			keyBoard.addButton(1, buttonStart);
 			
+			buttonStop = new ButtonFx();
 			buttonStop = add(parents, FXML_BUTTON, 150, 350);
 			buttonStop.setText("stop");
 			buttonStop.setId("buttonStop");
+			keyBoard.addButton(2, buttonStop);
 			
-			buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
-			buttonDecreaseTimeByMeasure.setText("dec");
-			buttonDecreaseTimeByMeasure.setId("buttonDec");
-			
+			buttonIncreaseTimeByMeasure = new ButtonFx();
 			buttonIncreaseTimeByMeasure = add(parents, FXML_BUTTON, 390, 350);
 			buttonIncreaseTimeByMeasure.setText("inc");
 			buttonIncreaseTimeByMeasure.setId("buttonInc");
+			keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
+			
+			buttonDecreaseTimeByMeasure = new ButtonFx();
+			buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
+			buttonDecreaseTimeByMeasure.setText("dec");
+			buttonDecreaseTimeByMeasure.setId("buttonDec");
+			keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
+			
 			
 			sliderThumb = add(parents, FXML_THUMB, 0, 0);
 			sliderThumb.setPosition(Constants.DEFAULT_TEMPO);
@@ -88,22 +97,13 @@ public class View implements IView {
 	}
 	
 
-	@Override
-	public IButton getButtonStart() {
-		return buttonStart;
-	}
-
 	private <X> X add(List<Parent> parents, String fxml, int x, int y) throws IOException {
-		
 		FXMLLoader fxmlLoader = new FXMLLoader();
-
 		Parent view = fxmlLoader.load(getClass().getResource(fxml).openStream());
 		
 		view.setLayoutX(x);
 		view.setLayoutY(y);
-		
 		parents.add(view);
-		
 		return fxmlLoader.getController();
 	}
 
@@ -115,6 +115,7 @@ public class View implements IView {
 		return root;
 	}
 	
+	
 	/**
 	 * @param root the root to set
 	 */
@@ -125,11 +126,18 @@ public class View implements IView {
 	
 	@Override
 	public void setCommand(IController controller) {
-
+		// Setting the command for the button and updating it in the keyboard
 		buttonStart.setCommand(() -> controller.startEngine());
+		keyBoard.addButton(1, buttonStart);
+		
 		buttonStop.setCommand(() -> controller.stopEngine());
+		keyBoard.addButton(2, buttonStop);
+		
 		buttonIncreaseTimeByMeasure.setCommand(() -> controller.increaseTimeByMeasure());
+		keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
+		
 		buttonDecreaseTimeByMeasure.setCommand(() -> controller.decreaseTimeByMeasure());
+		keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 		
 		sliderThumb.setCommand(() -> controller.updateThumbWheel(sliderThumb));
 	}
@@ -144,37 +152,41 @@ public class View implements IView {
 		}
 		myDisplayer.turnOffLED(led);
 	}
+	
 
-
+	@Override
+	public IButton getButtonStart() {
+		return keyBoard.getButton(1);
+	}
+	
 	/**
 	 * @return the buttonStop
 	 */
 	public IButton getButtonStop() {
-		return buttonStop;
+		return keyBoard.getButton(2);
 	}
 
-
-	/**
-	 * @return the buttonDecreaseTimeByMeasure
-	 */
-	public IButton getButtonDecreaseTimeByMeasure() {
-		return buttonDecreaseTimeByMeasure;
-	}
-
-
+	
 	/**
 	 * @return the buttonIncreaseTimeByMeasure
 	 */
 	public IButton getButtonIncreaseTimeByMeasure() {
-		return buttonIncreaseTimeByMeasure;
+		return keyBoard.getButton(3);
 	}
 
+	
+	/**
+	 * @return the buttonDecreaseTimeByMeasure
+	 */
+	public IButton getButtonDecreaseTimeByMeasure() {
+		return keyBoard.getButton(4);
+	}
 
+	
 	/**
 	 * @return the sliderThumb
 	 */
 	public ThumbWheelFx getSliderThumb() {
 		return sliderThumb;
 	}	
-
 }

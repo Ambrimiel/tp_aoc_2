@@ -12,18 +12,15 @@ public class ButtonFx implements IButton, Initializable {
 
 	@FXML
 	private Button button;
-	
 	private ICommand command;
-	
 	private Text text;
-
+	private Boolean isPressed;
 	
-	
+	// Getters and Setters
 	@Override
 	public void setCommand(ICommand command) {
 		this.command = command;
 	}
-		
 
 	/**
 	 * @return the text
@@ -32,7 +29,6 @@ public class ButtonFx implements IButton, Initializable {
 		return text;
 	}
 
-
 	/**
 	 * @param text the text to set
 	 */
@@ -40,54 +36,37 @@ public class ButtonFx implements IButton, Initializable {
 		this.text = text;
 	}
 
-
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
-
-		    System.err.println("Object added in view : ");	
-		
-	        button.setOnMouseClicked(event -> {
-			
-			
-			if (button.getId().equals("buttonStart")) {
-				System.err.println("The Button + " + button.getId() + " is clicked.");
-			}
-			
-			if (button.getId().equals("buttonStop")) {
-				System.err.println("The Button + " + button.getId() + " is clicked.");
-			}
-			
-			if (button.getId().equals("buttonInc")) {
-				System.err.println("The Button + " + button.getId() + " is clicked.");
-			}
-			
-			if (button.getId().equals("buttonDec")) {
-				System.err.println("The Button + " + button.getId() + " is clicked.");
-			}
-			
-			if (command != null) {
-				command.execute();
-			} else {
-				System.err.println("no command found !");
-			}
-		});
-
-		
-	}
-
-
 	@Override
 	public void setText(String text) {
 		button.setText(text);
-		
 	}
-
+	
 	@Override
 	public void setId(String id) {
 		button.setId(id);
 	}
 
+	// Initialize
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	    System.err.println("Object added in view : ");	
+	
+        button.setOnMouseClicked(event -> {
+        	
+        	isPressed = true;
+        	System.err.println("The Button + " + button.getId() + " is clicked.");
 
+			if (command != null) {
+				command.execute();
+			} else {
+				System.err.println("no command found !");
+			}
+        });
+	}
+
+	@Override
+	public Boolean isPressed() {
+		return isPressed;
+	}
 }
