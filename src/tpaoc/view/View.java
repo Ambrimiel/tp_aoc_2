@@ -60,25 +60,25 @@ public class View implements IView {
 			buttonStart.setText("Start");
 			buttonStart.setId("buttonStart");
 			// this line doesn't work
-			keyBoard.addButton(1, buttonStart);
+			//keyBoard.addButton(1, buttonStart);
 			
 			buttonStop = add(parents, FXML_BUTTON, 150, 350);
 			buttonStop.setText("Stop");
 			buttonStop.setId("buttonStop");
 			// this line doesn't work
-			keyBoard.addButton(2, buttonStop);
+			//keyBoard.addButton(2, buttonStop);
 			
 			buttonIncreaseTimeByMeasure = add(parents, FXML_BUTTON, 390, 350);
 			buttonIncreaseTimeByMeasure.setText("Inc");
 			buttonIncreaseTimeByMeasure.setId("buttonInc");
 			// this line doesn't work
-			keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
+			//keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
 			
 			buttonDecreaseTimeByMeasure = add(parents, FXML_BUTTON, 270, 350);
 			buttonDecreaseTimeByMeasure.setText("Dec");
 			buttonDecreaseTimeByMeasure.setId("buttonDec");
 			// this line doesn't work
-			keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
+			//keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 			
 			
 			sliderThumb = add(parents, FXML_THUMB, 0, 0);
@@ -128,16 +128,16 @@ public class View implements IView {
 	public void setCommand(IController controller) {
 		// Setting the command for the button and updating it in the keyboard
 		buttonStart.setCommand(() -> controller.startEngine());
-		keyBoard.addButton(1, buttonStart);
+		//keyBoard.addButton(1, buttonStart);
 		
 		buttonStop.setCommand(() -> controller.stopEngine());
-		keyBoard.addButton(2, buttonStop);
+		//keyBoard.addButton(2, buttonStop);
 		
 		buttonIncreaseTimeByMeasure.setCommand(() -> controller.increaseTimeByMeasure());
-		keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
+		//keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
 		
 		buttonDecreaseTimeByMeasure.setCommand(() -> controller.decreaseTimeByMeasure());
-		keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
+		//keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 		
 		sliderThumb.setCommand(() -> controller.updateThumbWheel(sliderThumb));
 	}
