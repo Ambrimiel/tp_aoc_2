@@ -52,7 +52,6 @@ public class Clock implements IClock {
 	public void periodicActivate(final ICommand cmd, final float periodInSeconds) {
 		final ClockTask clTask = new ClockTask(cmd); 
 		clocktasks.put(cmd, clTask);
-		System.out.println("In clock : " + periodInSeconds);
 		try {
 			timer.schedule(clTask, 0, (long) periodInSeconds); // Create Repetitively
 		} catch (Exception e) {

@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import tpaoc.controller.Controller;
 import tpaoc.controller.IController;
 import tpaoc.model.Constants;
 
@@ -77,7 +78,7 @@ public class View implements IView {
 			
 			DisplayTempoImplFx myDisplayTempo = add(parents, FXML_LABEL, 0,0);
 			myDisplayer.setDisplayTempo(myDisplayTempo);
-			myDisplayer.displayTempo(Constants.DEFAULT_TEMPO);
+			myDisplayer.displayTempo(Math.round(sliderThumb.getPosition()));
 			
 			root.getChildren().addAll(parents);
 			
@@ -146,10 +147,8 @@ public class View implements IView {
 		myDisplayer.turnOffLED(led);
 	}
 	
-	/**
-	 * @return the sliderThumb
-	 */
-	public ThumbWheelFx getSliderThumb() {
+
+	public IThumbWheel getSliderThumb() {
 		return sliderThumb;
 	}
 

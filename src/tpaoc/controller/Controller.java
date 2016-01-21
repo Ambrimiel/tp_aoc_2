@@ -92,7 +92,6 @@ public class Controller implements IController {
 
 	public void updateThumbWheel(IThumbWheel tw){
 		float position = tw.getPosition();
-		System.out.println("position : " + position);
 		engine.setTempo(Math.round(position));
 	}
 
@@ -155,7 +154,7 @@ public class Controller implements IController {
 			currentNb--;
 			engine.setNbTimeByM(currentNb);
 
-			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
+			System.out.println("decreaseTimeByMeasure" + engine.getNbTimeByM());
 			//  changer le texte du label des mesures
 			// et celui de la periode
 		} else {
