@@ -44,7 +44,7 @@ public class Main extends Application {
 			
 			primaryStage.setScene(scene);
 		
-			primaryStage.setTitle("METRONOME V1 - AOC TP  GUILLOU - RAULT");
+			primaryStage.setTitle("METRONOME V1.2 - AOC TP  GUILLOU - RAULT");
 
 			primaryStage.show();
 
