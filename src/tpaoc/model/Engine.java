@@ -94,6 +94,9 @@ public class Engine extends Observable implements IEngine {
 
 		this.tempo = Constants.DEFAULT_TEMPO;
 		this.nbTimeByM = Constants.DEF_TEMP_BY_TAC;
+		
+		System.err.println("tempo is " + tempo);
+		System.err.println("tempo is " + nbTimeByM);
 
 		clock = new Clock();
 
@@ -254,8 +257,15 @@ public class Engine extends Observable implements IEngine {
 		
 		if (tempo < Constants.MIN_TEMPO) { tempo = Constants.MIN_TEMPO; }
 		if (tempo > Constants.MAX_TEMPO) { tempo = Constants.MAX_TEMPO; }
-		this.period = (Constants.NB_MS_BY_MINUTE / tempo);
-	
+		System.err.println("===========" + nbTimeByM);
+		System.err.println("===========" +tempo);
+		
+		System.err.println("==========="  + nbTimeByM*10000 / tempo);
+		
+		
+		this.period = ((nbTimeByM*60000) / tempo);
+		setChanged();
+		notifyObservers();
 		return period;
 	}
 
@@ -305,6 +315,14 @@ public class Engine extends Observable implements IEngine {
 			clock.desactivate(getCommands().get("tac"));
 			clock.desactivate(getCommands().get("tac"));
 		});
+	}
+
+
+
+	@Override
+	public int getPeriod() {
+		// TODO Auto-generated method stub
+		return this.period;
 	}
 
 	

@@ -2,6 +2,8 @@ package tpaoc.view;
 
 import java.util.ArrayList;
 
+import tpaoc.commands.ICommand;
+
 /**
  * 
  * <h1> Metronome AOC. </h1>
@@ -16,6 +18,9 @@ public class Displayer implements IDisplayer {
 	private ArrayList<LedFx> myLeds;
 	
 	private DisplayTempoImplFx displayTempo;
+	
+	
+	private ICommand command;
 	
 	/**
 	 * Manager for leds.
@@ -39,9 +44,7 @@ public class Displayer implements IDisplayer {
 	}
 
 	
-	//
-	// Getters and Setters
-	//
+
 	public void addLed(LedFx led){
 		myLeds.add(led);
 	}
@@ -49,6 +52,7 @@ public class Displayer implements IDisplayer {
 
 	@Override
 	public void displayTempo(int tempo) {
+		
 		displayTempo.setTextTempo(tempo);
 		System.out.println("tempo : " + tempo);
 		
@@ -58,6 +62,14 @@ public class Displayer implements IDisplayer {
 	@Override
 	public void setDisplayTempo(DisplayTempoImplFx myDisplayTempo) {
 		this.displayTempo = myDisplayTempo;
+	}
+
+
+	/**
+	 * @param command the command to set
+	 */
+	public void setCommand(ICommand command) {
+		this.command = command;
 	}
 
 	

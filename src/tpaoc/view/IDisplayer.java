@@ -1,5 +1,6 @@
 package tpaoc.view;
 
+import tpaoc.commands.ICommand;
 
 /**
  * 
@@ -36,5 +37,7 @@ public interface IDisplayer {
 	void addLed(LedFx led);
 
 	void setDisplayTempo(DisplayTempoImplFx myDisplayTempo);
+
+	void setCommand(ICommand command);
 
 }

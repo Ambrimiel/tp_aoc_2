@@ -112,6 +112,8 @@ public interface IEngine {
 	 */
 	int calculatePeriod();
 
+	int getPeriod();
+
 
 
 }

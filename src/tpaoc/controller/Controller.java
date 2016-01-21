@@ -105,6 +105,7 @@ public class Controller implements IController {
 			engine.calculatePeriod();
 			engine.setStarted(true);
 			System.out.println("engine is started " + engine.getTempo());
+			
 			// et modifier l'apparence des boutons
 		}
 	}
@@ -169,6 +170,9 @@ public class Controller implements IController {
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(final Observable observable, final Object arg) {
+
+		System.out.println("period is " + engine.getPeriod());
+
 		// Tempo
 		if (!engine.isUpdatedTempo()) {
 			if (engine.isStarted()) {

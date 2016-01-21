@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import tpaoc.commands.ICommand;
 import tpaoc.controller.Controller;
 import tpaoc.controller.IController;
 import tpaoc.model.Constants;
@@ -135,6 +136,8 @@ public class View implements IView {
 		keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 		
 		sliderThumb.setCommand(() -> controller.updateThumbWheel(sliderThumb));
+		
+	//	myDisplayer.setCommand(() -> controller.updateThumbWheel(sliderThumb));
 	}
 	
 	public void flash(int led) {
