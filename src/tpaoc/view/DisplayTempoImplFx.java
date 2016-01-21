@@ -7,26 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-public class DisplayTempoImplFx implements IDisplayTempo, Initializable{
+public class DisplayTempoImplFx implements Initializable{
 
-	private int textTempo;
-	
 	@FXML
 	private Label labelTempo;
 	
-	
-
-	@Override
-	public int getTextTempo() {
-		return textTempo; 
-
-	}
-
-	@Override
 	public void setTextTempo(int textTempo) {
-		labelTempo.setText( Integer.toString(textTempo));
-		this.textTempo = textTempo;
-
+		labelTempo.setText(Integer.toString(textTempo));
 	}
 
 	@Override

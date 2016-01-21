@@ -10,7 +10,7 @@ import tpaoc.model.IClock;
 import tpaoc.model.IEngine;
 import tpaoc.view.IThumbWheel;
 import tpaoc.view.SoundEmettor;
-import tpaoc.view.View;
+import tpaoc.view.IView;
 
 /**
  * <h2><i>Project name : </i>Metronome</h2>
@@ -43,7 +43,7 @@ public class Controller implements IController {
 	 */
 	private final transient SoundEmettor soundEmettor;
 
-	private final transient View guiView;
+	private final transient IView guiView;
 
 	/*
 	 * =======================================================================
@@ -55,7 +55,7 @@ public class Controller implements IController {
 	 * Main constructor.
 	 * @param guiView.
 	 */
-	public Controller(View guiView) {
+	public Controller(IView guiView) {
 		engine = new Engine(this);
 		clock = new Clock();
 		soundEmettor =  new SoundEmettor();
@@ -72,8 +72,6 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#markTempo()
 	 */
 	public final void markTempo() {
-
-		//guiView.getButtonStart().setText("go");
 		clock.activateAfterWait(() -> guiView.flash(1),
 				Constants.FLASH_TIME);
 		clock.activateAfterWait(() -> soundEmettor.makeSound(),
@@ -84,17 +82,17 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#markMeasure()
 	 */
 	public final void markMeasure() {
-		guiView.flash(2);
-		System.out.println("markMesure !!!");
-		//soundEmettor.makeSound();
-		System.out.println("engine tempo ?" + engine.getNbTimeByM());
-		// appeler la fonction du controllerView qui gere la led2 et le son ... 
-		//a utiliser avec la clock
+		clock.activateAfterWait(() -> guiView.flash(2),
+				Constants.FLASH_TIME);
+		//clock.activateAfterWait(() -> soundEmettor.makeSound(),
+		//		Constants.FLASH_TIME);
+		
 	}
 
 
 	public void updateThumbWheel(IThumbWheel tw){
 		float position = tw.getPosition();
+		System.out.println("position : " + position);
 		engine.setTempo(Math.round(position));
 	}
 
@@ -138,14 +136,9 @@ public class Controller implements IController {
 
 		if ( engine.getNbTimeByM() < Constants.MAX_TEMPO_BY_TAC) {
 
-
 			engine.setNbTimeByM(engine.getNbTimeByM() + 1);
 
-			final int period = engine.calculatePeriod();
-
 			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
-			//  changer le texte du label des mesures
-			// et celui de la p�riode
 		} else {
 			engine.setNbTimeByM(Constants.MAX_TEMPO_BY_TAC);
 		}
@@ -162,10 +155,9 @@ public class Controller implements IController {
 			currentNb--;
 			engine.setNbTimeByM(currentNb);
 
-			final int period = engine.calculatePeriod();	
 			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
 			//  changer le texte du label des mesures
-			// et celui de la p�riode
+			// et celui de la periode
 		} else {
 			engine.setNbTimeByM(Constants.MIN_TEMPO);
 		}
@@ -184,7 +176,7 @@ public class Controller implements IController {
 				engine.updateTicTac();
 			}
 			// modifier le label du tempo
-
+			guiView.updateLabelTempo(engine.getTempo());
 			engine.setUpdatedTempo(true);
 		}
 		// Time by measure

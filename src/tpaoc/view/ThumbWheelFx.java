@@ -61,19 +61,10 @@ public class ThumbWheelFx implements IThumbWheel,Initializable {
 		 * A listener for the sliderThumb
 		 */
 		sliderThumb.valueProperty().addListener(new ChangeListener<Number>() {
-			public void changed(final ObservableValue<? extends Number> observableValue, 
-					final Number oldValue, final Number newValue) {
-
-				// Update the value in the model/engine
-				//controller.   //setTempo(newValue.intValue());
-				
-				System.out.println(newValue.intValue());
-
-				//final int period = engine.calculatePeriod();
-				//labelPeriod.setText(Integer.toString(period * engine.getTempo()));
+			public void changed(final ObservableValue<? extends Number> observableValue, final Number oldValue, final Number newValue) {
+				setPosition(newValue.floatValue());
+				command.execute();
 			}
-		});
-		
+		});	
 	}
-
 }

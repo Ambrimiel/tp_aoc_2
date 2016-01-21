@@ -50,6 +50,7 @@ public class Displayer implements IDisplayer {
 	@Override
 	public void displayTempo(int tempo) {
 		displayTempo.setTextTempo(tempo);
+		System.out.println("tempo : " + tempo);
 		
 	}
 

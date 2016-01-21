@@ -51,7 +51,6 @@ public class LedFx implements Initializable {
 
 
 	public void turnOnLED() {
-		System.out.println("turnOnLED " + id);
 		if (id == 1){
 			led.setFill(Color.YELLOW);
 		}

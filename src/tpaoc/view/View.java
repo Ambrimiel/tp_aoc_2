@@ -72,10 +72,8 @@ public class View implements IView {
 			buttonDecreaseTimeByMeasure.setId("buttonDec");
 			keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 			
-			
 			sliderThumb = add(parents, FXML_THUMB, 0, 0);
 			sliderThumb.setPosition(Constants.DEFAULT_TEMPO);
-			
 			
 			DisplayTempoImplFx myDisplayTempo = add(parents, FXML_LABEL, 0,0);
 			myDisplayer.setDisplayTempo(myDisplayTempo);
@@ -119,19 +117,19 @@ public class View implements IView {
 	@Override
 	public void setCommand(IController controller) {
 		// Setting the command for the button and updating it in the keyboard
-		ButtonFx buttonStart = (ButtonFx)keyBoard.getButton(1);
+		IButton buttonStart = keyBoard.getButton(1);
 		buttonStart.setCommand(() -> controller.startEngine());
 		keyBoard.addButton(1, buttonStart);
 		
-		ButtonFx buttonStop = (ButtonFx)keyBoard.getButton(2);
+		IButton buttonStop = keyBoard.getButton(2);
 		buttonStop.setCommand(() -> controller.stopEngine());
 		keyBoard.addButton(2, buttonStop);
 		
-		ButtonFx buttonIncreaseTimeByMeasure = (ButtonFx)keyBoard.getButton(3);
+		IButton buttonIncreaseTimeByMeasure = keyBoard.getButton(3);
 		buttonIncreaseTimeByMeasure.setCommand(() -> controller.increaseTimeByMeasure());
 		keyBoard.addButton(3, buttonIncreaseTimeByMeasure);
 		
-		ButtonFx buttonDecreaseTimeByMeasure = (ButtonFx)keyBoard.getButton(4);
+		IButton buttonDecreaseTimeByMeasure = keyBoard.getButton(4);
 		buttonDecreaseTimeByMeasure.setCommand(() -> controller.decreaseTimeByMeasure());
 		keyBoard.addButton(4, buttonDecreaseTimeByMeasure);
 		
@@ -143,46 +141,21 @@ public class View implements IView {
 		try {
 			Thread.sleep(70);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		myDisplayer.turnOffLED(led);
 	}
-	
-
-	@Override
-	public IButton getButtonStart() {
-		return keyBoard.getButton(1);
-	}
-	
-	/**
-	 * @return the buttonStop
-	 */
-	public IButton getButtonStop() {
-		return keyBoard.getButton(2);
-	}
-
-	
-	/**
-	 * @return the buttonIncreaseTimeByMeasure
-	 */
-	public IButton getButtonIncreaseTimeByMeasure() {
-		return keyBoard.getButton(3);
-	}
-
-	
-	/**
-	 * @return the buttonDecreaseTimeByMeasure
-	 */
-	public IButton getButtonDecreaseTimeByMeasure() {
-		return keyBoard.getButton(4);
-	}
-
 	
 	/**
 	 * @return the sliderThumb
 	 */
 	public ThumbWheelFx getSliderThumb() {
 		return sliderThumb;
+	}
+
+
+	@Override
+	public void updateLabelTempo(int tempo) {
+		myDisplayer.displayTempo(tempo);
 	}	
 }
