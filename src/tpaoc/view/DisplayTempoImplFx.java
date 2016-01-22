@@ -42,6 +42,4 @@ public class DisplayTempoImplFx implements  Initializable {
 		this.labelTempo = labelTempo;
 	}
 	
-	
-
 }

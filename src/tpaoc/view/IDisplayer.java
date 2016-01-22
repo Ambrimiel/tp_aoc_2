@@ -29,7 +29,6 @@ public interface IDisplayer {
 	 */
 	void displayTempo(int tempo);
 	
-
 	/**
 	 * Adds a led to the ArrayList.
 	 */

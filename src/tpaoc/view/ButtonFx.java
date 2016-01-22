@@ -65,9 +65,7 @@ public class ButtonFx implements IButton, Initializable {
 	    
         button.setOnMouseClicked(event -> {
         	
-        	// Setting isPressed at true
         	isPressed = true;
-        	System.err.println("The Button + " + button.getId() + " is clicked.");
 
         	// Executing command needed
 			if (command != null) {

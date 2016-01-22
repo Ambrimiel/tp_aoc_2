@@ -36,7 +36,7 @@ public interface IClock {
 	void desactivate(ICommand cmd);
 
 	/**
-	 * @param timer .
+	 * @param timer.
 	 */
 	void setTimer(Timer timer);
 
@@ -44,5 +44,4 @@ public interface IClock {
 	 * @return {@link Timer}
 	 */
 	Timer getTimer();
-
 }

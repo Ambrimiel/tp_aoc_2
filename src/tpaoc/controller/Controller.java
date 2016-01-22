@@ -93,10 +93,8 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#updateThumbWheel(tpaoc.view.IThumbWheel)
 	 */
 	public void updateThumbWheel(IThumbWheel thumbWheel){
-
 		float position = thumbWheel.getPosition();
 		engine.setTempo(Math.round(position));
-
 	}
 
 
@@ -105,25 +103,19 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#startEngine()
 	 */
 	public final void startEngine() {
-
 		if (!engine.isStarted()) {
 			engine.calculatePeriod();
 			engine.setStarted(true);
 		}
-
 	}
 
 	/**
 	 * @see tpaoc.controller.IController#stopEngine()
 	 */
 	public final void stopEngine() {
-
 		if (engine.isStarted()) {
-
 			engine.setStarted(false);
-
 			engine.setTempo(Constants.DEFAULT_TEMPO);
-
 			engine.setNbTimeByM(Constants.DEF_TEMP_BY_TAC);
 		}
 	}
@@ -133,34 +125,23 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#increaseTimeByMeasure()
 	 */
 	public final void increaseTimeByMeasure() {
-
-		if ( engine.getNbTimeByM() < Constants.MAX_TEMPO_BY_TAC) {
-
+		if(engine.getNbTimeByM() < Constants.MAX_TEMPO_BY_TAC)
 			engine.setNbTimeByM(engine.getNbTimeByM() + 1);
-
-		} else {
+		else
 			engine.setNbTimeByM(Constants.MAX_TEMPO_BY_TAC);
-		}
-
 	}
 
 	/**
 	 * @see tpaoc.controller.IController#decreaseTimeByMeasure()
 	 */
 	public final void decreaseTimeByMeasure() {
-
 		int currentNb = engine.getNbTimeByM();
-
 		if (currentNb > Constants.MIN_TEMPO) {
-
 			currentNb--;
-
 			engine.setNbTimeByM(currentNb);
-
-		} else {
+		}else{
 			engine.setNbTimeByM(Constants.MIN_TEMPO);
 		}
-
 	}
 
 
@@ -173,13 +154,9 @@ public class Controller implements IController {
 		// Tempo
 		if (!engine.isUpdatedTempo()) {
 			if (engine.isStarted()) {
-
 				engine.updateTicTac();
-
 				engine.calculatePeriod();
-
 				view.updateLabelTempo(engine.getTempo());
-
 				engine.setUpdatedTempo(true);
 			}
 		}
@@ -187,22 +164,18 @@ public class Controller implements IController {
 		// Time by measure
 		if (!engine.isUpdatedNbTimeByM()) {
 			// update of the tic tac in the engine
-			if (engine.isStarted()) {
+			if (engine.isStarted()) 
 				engine.updateTicTac();
-			}
 			engine.setUpdatedNbTimeByM(true);
 		}
 		
 		// Started
 		if (!engine.isUpdatedStarted()) {
-			if (engine.isStarted()) {
+			if (engine.isStarted())
 				engine.beginTicTac();
-			} else {
+			else
 				engine.stopTicTac();
-			}
 			engine.setUpdatedStarted(true);
 		}
-
 	}
-
 }

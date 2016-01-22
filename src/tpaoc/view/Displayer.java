@@ -87,13 +87,11 @@ public class Displayer implements IDisplayer {
 	}
 
 
-
 	/* (non-Javadoc)
 	 * @see tpaoc.view.IDisplayer#setCommand(tpaoc.commands.ICommand)
 	 */
 	public void setCommand(ICommand command) {
 		this.command = command;
 	}
-
 	
 }

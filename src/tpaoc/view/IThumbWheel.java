@@ -16,13 +16,13 @@ public interface IThumbWheel {
 	
 	/**
 	 * 
-	 * @param position :
+	 * @param position : float
 	 */
 	void setPosition(float position);
 	
 	/**
-	 * Returns the current position of the ThumbWheel.
-	 * @return float
+	 * 
+	 * @param position : int
 	 */
 	void setPosition(int position);
 

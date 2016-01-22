@@ -11,6 +11,10 @@ import tpaoc.commands.ICommand;
  */
 public interface IButton  {
 	
+	/**
+	 * 
+	 * @return Boolean : if the button is pressed.
+	 */
 	 Boolean isPressed();
 	
 	/**

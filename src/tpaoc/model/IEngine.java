@@ -58,19 +58,19 @@ public interface IEngine {
 	
 	/**
 	 * 
-	 * @param tempo .
+	 * @param tempo.
 	 */
 	void setTempo(Integer tempo);
 	
 	/**
 	 * 
-	 * @param timeByM .
+	 * @param timeByM.
 	 */
 	void setNbTimeByM(Integer timeByM);
 	
 	/**
 	 * 
-	 * @param started .
+	 * @param started.
 	 */
 	void setStarted(boolean started);
 
@@ -92,19 +92,19 @@ public interface IEngine {
 
 	/**
 	 * 
-	 * @param updatedTempo .
+	 * @param updatedTempo.
 	 */
 	void setUpdatedTempo(boolean updatedTempo);
 
 	/**
 	 * 
-	 * @param updatedNbTimeByM .
+	 * @param updatedNbTimeByM.
 	 */
 	void setUpdatedNbTimeByM(boolean updatedNbTimeByM);
 
 	/**
 	 * 
-	 * @param updatedStarted .
+	 * @param updatedStarted.
 	 */
 	void setUpdatedStarted(boolean updatedStarted);
 

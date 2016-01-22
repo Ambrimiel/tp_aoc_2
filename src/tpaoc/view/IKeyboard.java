@@ -10,7 +10,7 @@ public interface IKeyboard {
 	
 	/**
 	 * Returns if the button i is clicked.
-	 * @param numOfButton .
+	 * @param numOfButton.
 	 * @return boolean 
 	 */
 	boolean buttonClicked(int numOfButton);

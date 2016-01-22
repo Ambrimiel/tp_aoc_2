@@ -80,6 +80,4 @@ public class Clock implements IClock {
 		timer.purge();
 		timer = new Timer();
 	}
-
-
 }

@@ -66,10 +66,8 @@ public class ThumbWheelFx implements IThumbWheel, Initializable {
 			public void changed(final ObservableValue<? extends Number> observableValue, final Number oldValue, final Number newValue) {
 				setPosition(newValue.floatValue());
 	        	// Executing needed command
-				if (command != null) {
+				if (command != null) 
 					command.execute();
-				}
-
 			}
 		});	
 	}

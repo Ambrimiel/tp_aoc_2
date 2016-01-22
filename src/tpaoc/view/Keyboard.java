@@ -34,7 +34,6 @@ public class Keyboard implements IKeyboard{
 	
 	// Getters and setters on the hashmap of buttons
 	
-	
 	/* (non-Javadoc)
 	 * @see tpaoc.view.IKeyboard#getButton(int)
 	 */

@@ -25,6 +25,7 @@ public class ClockTask extends TimerTask {
 		this.cmd = cmd;
 	}
 
+	
 	/**
 	 * @see java.util.TimerTask#run()
 	 */

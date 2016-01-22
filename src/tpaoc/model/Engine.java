@@ -35,34 +35,34 @@ public class Engine extends Observable implements IEngine {
 	private final transient IController controller;
 
 	/**
-	 * Tic.
+	 * Tempo.
 	 */
 	private Integer tempo;
 
 	/**
-	 * Number of tic for one tac.
+	 * Number of times in a measure.
 	 */
 	private Integer nbTimeByM;
 
 	/* STATES PROPERTIES */
 
 	/**
-	 * Tic is started.
+	 * Engine is started.
 	 */
 	private boolean started;
 
 	/**
-	 * Number of tic by minute changed.
+	 * Says if tempo was changed.
 	 */
 	private boolean updatedTempo;
 
 	/**
-	 * Number of tic by tac changed.
+	 * Says if the number of time by measure was changed.
 	 */
 	private boolean updatedNbTimeByM;
 
 	/**
-	 * The state updated.
+	 * Says if started was changed.
 	 */
 	private boolean updatedStarted;
 
@@ -81,7 +81,7 @@ public class Engine extends Observable implements IEngine {
 	 */
 	public Engine(final IController pcontroller) {
 		super();
-		// init commands.
+		// Init commands.
 		engineInitCommands();
 
 		// Initial first running states
@@ -97,7 +97,6 @@ public class Engine extends Observable implements IEngine {
 
 		// Getting the controller and adding it as the observer
 		this.controller = pcontroller;
-
 		addObserver(controller);
 
 	}
@@ -112,17 +111,17 @@ public class Engine extends Observable implements IEngine {
 	 * @see tpaoc.model.IEngine#setTempo(java.lang.Integer)
 	 */
 	public final void setTempo(final Integer pTempo) {
-		
 		this.tempo = pTempo;
 		
-		// setting updated to false so the controller will know
+		// Setting updated to false so the controller will know.
 		updatedTempo = false;
 
-		// notify the controller, which will update
+		// Notify the controller, which will update.
 		setChanged();
 		notifyObservers();
 	}
 
+	
 	/**
 	 * @see tpaoc.model.IEngine#setNbTimeByM(java.lang.Integer)
 	 */
@@ -136,6 +135,7 @@ public class Engine extends Observable implements IEngine {
 		notifyObservers();
 	}
 
+	
 	/**
 	 * @see tpaoc.model.IEngine#setStarted(boolean)
 	 */
@@ -150,12 +150,14 @@ public class Engine extends Observable implements IEngine {
 		notifyObservers();
 	}
 	
+	
 	/**
 	 * @see tpaoc.model.IEngine#isUpdatedTempo()
 	 */
 	public final boolean isUpdatedTempo() {
 		return updatedTempo;
 	}
+	
 	
 	/**
 	 * @see tpaoc.model.IEngine#isUpdatedNbTimeByM()
@@ -164,12 +166,14 @@ public class Engine extends Observable implements IEngine {
 		return updatedNbTimeByM;
 	}
 	
+	
 	/**
 	 * @see tpaoc.model.IEngine#isUpdatedStarted()
 	 */
 	public final boolean isUpdatedStarted() {
 		return updatedStarted;
 	}
+	
 	
 	/**
 	 * @see tpaoc.model.IEngine#setUpdatedTempo(boolean)
@@ -178,6 +182,7 @@ public class Engine extends Observable implements IEngine {
 		this.updatedTempo = updatedTempo;
 	}
 	
+	
 	/**
 	 * @see tpaoc.model.IEngine#setUpdatedNbTimeByM(boolean)
 	 */
@@ -185,12 +190,14 @@ public class Engine extends Observable implements IEngine {
 		this.updatedNbTimeByM = updatedNbTimeByM;
 	}
 	
+	
 	/**
 	 * @see tpaoc.model.IEngine#setUpdatedStarted(boolean)
 	 */
 	public final void setUpdatedStarted(boolean updatedStarted) {
 		this.updatedStarted = updatedStarted;
 	}
+	
 	
 	/**
 	 * @see tpaoc.model.IEngine#getTempo()
@@ -206,12 +213,14 @@ public class Engine extends Observable implements IEngine {
 		return nbTimeByM;
 	}
 	
+	
 	/**
 	 * @see tpaoc.model.IEngine#isStarted()
 	 */
 	public final boolean isStarted() {
 		return started;
 	}
+	
 	
 	/**
 	 * @return commands 
@@ -220,6 +229,7 @@ public class Engine extends Observable implements IEngine {
 		return commands;
 	}
 	
+	
 	/**
 	 * @param commands
 	 */
@@ -227,6 +237,12 @@ public class Engine extends Observable implements IEngine {
 		this.commands = commands;
 	}
 
+
+	@Override
+	public int getPeriod() {
+		return this.period;
+	}
+	
 
 	// ========================================================
 	// Methods
@@ -240,12 +256,14 @@ public class Engine extends Observable implements IEngine {
 		clock.periodicActivate(getCommands().get("Tac"), period * nbTimeByM);
 	}
 
+	
 	/**
 	 * @see tpaoc.model.IEngine#stopTicTac()
 	 */
 	public final void stopTicTac() {
 		clock.activateAfterWait(getCommands().get("Stop"), Constants.DELAY_AFTER_WAIT);
 	}
+	
 
 	/**
 	 * @see tpaoc.model.IEngine#updateTicTac()
@@ -254,17 +272,16 @@ public class Engine extends Observable implements IEngine {
 		clock.activateAfterWait(getCommands().get("UpdateTicTac"), Constants.DELAY_AFTER_WAIT);
 	}
 
+	
 	/**
 	 * @see tpaoc.model.IEngine#calculatePeriod()
 	 */
 	public int calculatePeriod() {
-		
 		if (tempo < Constants.MIN_TEMPO) { tempo = Constants.MIN_TEMPO; }
 		
 		if (tempo > Constants.MAX_TEMPO) { tempo = Constants.MAX_TEMPO; }
 		
 		this.period = ((nbTimeByM*10000) / tempo);
-
 		return period;
 	}
 
@@ -315,13 +332,5 @@ public class Engine extends Observable implements IEngine {
 			clock.desactivate(getCommands().get("tac"));
 		});
 	}
-
-
-
-	@Override
-	public int getPeriod() {
-		return this.period;
-	}
-
 	
 }

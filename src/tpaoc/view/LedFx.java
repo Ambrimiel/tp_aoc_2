@@ -55,12 +55,11 @@ public class LedFx implements Initializable {
 	 * Method for turned On the Led : (Color RED OR GREEN) 
 	 */
 	public void turnOnLED() {
-		if (id == 1){
+		if (id == 1)
 			led.setFill(Color.RED);
-		}
-		if (id == 2){
+		
+		if (id == 2)
 			led.setFill(Color.BLUE);
-		}
 	}
 
 	/**
