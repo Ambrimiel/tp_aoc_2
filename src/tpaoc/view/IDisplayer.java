@@ -2,6 +2,8 @@ package tpaoc.view;
 
 import tpaoc.commands.ICommand;
 
+
+
 /**
  * 
  * <h1> Metronome AOC. </h1>
@@ -29,15 +31,20 @@ public interface IDisplayer {
 	 */
 	void displayTempo(int tempo);
 	
-	
-	// Getters and setters
+
 	/**
 	 * Adds a led to the ArrayList.
 	 */
 	void addLed(LedFx led);
 
+	/**
+	 * @param myDisplayTempo
+	 */
 	void setDisplayTempo(DisplayTempoImplFx myDisplayTempo);
 
+	/**
+	 * @param command
+	 */
 	void setCommand(ICommand command);
 
 }

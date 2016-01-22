@@ -2,21 +2,20 @@ package tpaoc.controller;
 
 import java.util.Observable;
 
-import javafx.scene.paint.Color;
 import tpaoc.model.Clock;
 import tpaoc.model.Constants;
 import tpaoc.model.Engine;
 import tpaoc.model.IClock;
 import tpaoc.model.IEngine;
 import tpaoc.view.IThumbWheel;
-import tpaoc.view.SoundEmettor;
 import tpaoc.view.IView;
+import tpaoc.view.SoundEmettor;
 
 /**
  * <h2><i>Project name : </i>Metronome</h2>
  * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
  * <p><i>CLass The Controller</i>. The Front controller, is a class to
- * "d�couple" the view and the model.</p>
+ * "decouple" the view and the model.</p>
  * <pre>By convention the tic is the Tempo's  and tac is Measure's name 
  * for this Metronome.</pre>
  */
@@ -43,7 +42,10 @@ public class Controller implements IController {
 	 */
 	private final transient SoundEmettor soundEmettor;
 
-	private final transient IView guiView;
+	/**
+	 * The View
+	 */
+	private final transient IView view;
 
 	/*
 	 * =======================================================================
@@ -55,11 +57,11 @@ public class Controller implements IController {
 	 * Main constructor.
 	 * @param guiView.
 	 */
-	public Controller(IView guiView) {
+	public Controller(IView view) {
 		engine = new Engine(this);
 		clock = new Clock();
 		soundEmettor =  new SoundEmettor();
-		this.guiView = guiView;
+		this.view = view;
 	}
 
 	/*
@@ -72,7 +74,7 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#markTempo()
 	 */
 	public final void markTempo() {
-		clock.activateAfterWait(() -> guiView.flash(1),
+		clock.activateAfterWait(() -> view.flash(1),
 				Constants.FLASH_TIME);
 		clock.activateAfterWait(() -> soundEmettor.makeSound(),
 				Constants.FLASH_TIME);
@@ -82,17 +84,19 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#markMeasure()
 	 */
 	public final void markMeasure() {
-		clock.activateAfterWait(() -> guiView.flash(2),
+		clock.activateAfterWait(() -> view.flash(2),
 				Constants.FLASH_TIME);
-		//clock.activateAfterWait(() -> soundEmettor.makeSound(),
-		//		Constants.FLASH_TIME);
-		
 	}
 
 
-	public void updateThumbWheel(IThumbWheel tw){
-		float position = tw.getPosition();
+	/* (non-Javadoc)
+	 * @see tpaoc.controller.IController#updateThumbWheel(tpaoc.view.IThumbWheel)
+	 */
+	public void updateThumbWheel(IThumbWheel thumbWheel){
+
+		float position = thumbWheel.getPosition();
 		engine.setTempo(Math.round(position));
+
 	}
 
 
@@ -101,30 +105,26 @@ public class Controller implements IController {
 	 * @see tpaoc.controller.IController#startEngine()
 	 */
 	public final void startEngine() {
+
 		if (!engine.isStarted()) {
 			engine.calculatePeriod();
 			engine.setStarted(true);
-			System.out.println("engine is started " + engine.getTempo());
-			
-			// et modifier l'apparence des boutons
 		}
+
 	}
 
 	/**
 	 * @see tpaoc.controller.IController#stopEngine()
 	 */
 	public final void stopEngine() {
+
 		if (engine.isStarted()) {
-			System.out.println("engine is stopped " + engine.getTempo());
-			// et modifier l'apparence des boutons
+
 			engine.setStarted(false);
 
-			// return to defaults values
 			engine.setTempo(Constants.DEFAULT_TEMPO);
-			engine.setNbTimeByM(Constants.DEF_TEMP_BY_TAC);
-			// remettre les autres labels aux valeurs par d�faut
 
-			// et modifier l'apparence des boutons
+			engine.setNbTimeByM(Constants.DEF_TEMP_BY_TAC);
 		}
 	}
 
@@ -138,7 +138,6 @@ public class Controller implements IController {
 
 			engine.setNbTimeByM(engine.getNbTimeByM() + 1);
 
-			System.out.println("increaseTimeByMeasure" + engine.getNbTimeByM());
 		} else {
 			engine.setNbTimeByM(Constants.MAX_TEMPO_BY_TAC);
 		}
@@ -151,13 +150,13 @@ public class Controller implements IController {
 	public final void decreaseTimeByMeasure() {
 
 		int currentNb = engine.getNbTimeByM();
+
 		if (currentNb > Constants.MIN_TEMPO) {
+
 			currentNb--;
+
 			engine.setNbTimeByM(currentNb);
 
-			System.out.println("decreaseTimeByMeasure" + engine.getNbTimeByM());
-			//  changer le texte du label des mesures
-			// et celui de la periode
 		} else {
 			engine.setNbTimeByM(Constants.MIN_TEMPO);
 		}
@@ -171,17 +170,20 @@ public class Controller implements IController {
 	 */
 	public void update(final Observable observable, final Object arg) {
 
-		System.out.println("period is " + engine.getPeriod());
-
 		// Tempo
 		if (!engine.isUpdatedTempo()) {
 			if (engine.isStarted()) {
+
 				engine.updateTicTac();
+
+				engine.calculatePeriod();
+
+				view.updateLabelTempo(engine.getTempo());
+
+				engine.setUpdatedTempo(true);
 			}
-			// modifier le label du tempo
-			guiView.updateLabelTempo(engine.getTempo());
-			engine.setUpdatedTempo(true);
 		}
+		
 		// Time by measure
 		if (!engine.isUpdatedNbTimeByM()) {
 			// update of the tic tac in the engine
@@ -190,6 +192,7 @@ public class Controller implements IController {
 			}
 			engine.setUpdatedNbTimeByM(true);
 		}
+		
 		// Started
 		if (!engine.isUpdatedStarted()) {
 			if (engine.isStarted()) {

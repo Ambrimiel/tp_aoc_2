@@ -4,11 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="tpaoc.view.ThumbWheelFx" id="AnchorPane" prefHeight="40" prefWidth="100.0"  xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="tpaoc.view.ThumbWheelFx" id="AnchorPane"
+	prefHeight="40" prefWidth="100.0" xmlns="http://javafx.com/javafx/8.0.40"
+	xmlns:fx="http://javafx.com/fxml/1">
 
 	<children>
-				<Slider fx:id="sliderThumb" layoutX="40.0" layoutY="238.0" prefHeight="40.0" prefWidth="450.0" max="238" min="1" showTickLabels="true" showTickMarks="true" blockIncrement="20"/>
+		<Slider fx:id="sliderThumb" layoutX="40.0" layoutY="238.0"
+			prefHeight="40.0" prefWidth="450.0" max="238" min="1" showTickLabels="true"
+			showTickMarks="true" blockIncrement="20" />
 	</children>
-
 
 </AnchorPane>

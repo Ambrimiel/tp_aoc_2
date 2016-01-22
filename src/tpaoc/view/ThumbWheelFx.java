@@ -2,14 +2,11 @@ package tpaoc.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
-import javafx.scene.text.Text;
 import tpaoc.commands.ICommand;
 
 /**
@@ -18,12 +15,15 @@ import tpaoc.commands.ICommand;
  * @author Guillou-Rault
  *
  */
-public class ThumbWheelFx implements IThumbWheel,Initializable {
+public class ThumbWheelFx implements IThumbWheel, Initializable {
 	
 	
 	@FXML
 	private Slider sliderThumb;
 	
+	/**
+	 * The command
+	 */
 	private ICommand command;
 	
 	/**
@@ -55,16 +55,27 @@ public class ThumbWheelFx implements IThumbWheel,Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	
-		System.out.println("Slider added");
+		// default value of the slider
+		sliderThumb.setValue(60D);
 		
 		/**
 		 * A listener for the sliderThumb
 		 */
 		sliderThumb.valueProperty().addListener(new ChangeListener<Number>() {
+			
 			public void changed(final ObservableValue<? extends Number> observableValue, final Number oldValue, final Number newValue) {
 				setPosition(newValue.floatValue());
-				command.execute();
+	        	// Executing needed command
+				if (command != null) {
+					command.execute();
+				}
+
 			}
 		});	
+	}
+
+	@Override
+	public void setPosition(int position) {
+		this.position = position;
 	}
 }

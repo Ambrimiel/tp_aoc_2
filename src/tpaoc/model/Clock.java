@@ -11,7 +11,7 @@ import tpaoc.commands.ICommand;
  * @author Guillou-Rault
  */
 public class Clock implements IClock {
-	
+
 
 	/**
 	 * Timer that will call the scheduled.
@@ -22,7 +22,7 @@ public class Clock implements IClock {
 	 * MAp for the ClockTask
 	 */
 	private transient Map<ICommand, ClockTask> clocktasks;
-	
+
 	/**
 	 * @see tpaoc.model.IClock#getTimer()
 	 */
@@ -53,12 +53,11 @@ public class Clock implements IClock {
 		final ClockTask clTask = new ClockTask(cmd); 
 		clocktasks.put(cmd, clTask);
 		try {
-			timer.schedule(clTask, 0, (long) periodInSeconds); // Create Repetitively
+			timer.schedule(clTask, 0, (long) periodInSeconds);
 		} catch (Exception e) {
-			System.err.println(e);
-		}						      						   // task for every
-															   // periodInSeconds
-							
+			e.printStackTrace();
+		}						      						
+
 	}
 
 	/**
@@ -67,9 +66,8 @@ public class Clock implements IClock {
 	public void activateAfterWait(ICommand cmd,float waitInSeconds) {
 		final ClockTask clTask = new ClockTask(cmd); 
 		clocktasks.put(cmd, clTask);
-		timer.schedule(clTask, (long) waitInSeconds); // Create Repetitively task
-													  // that begins after
-													  // waitInSeconds
+		timer.schedule(clTask, (long) waitInSeconds); 
+
 	}
 
 	/**
@@ -81,5 +79,5 @@ public class Clock implements IClock {
 		timer = new Timer();
 	}
 
-	
+
 }

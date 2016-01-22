@@ -6,6 +6,12 @@ import tpaoc.commands.ICommand;
 /**
  * Button's interface.
  */
+/**
+ * @author  Olivier GUILLOU
+ * <h1> tp_aoc2 <h1>
+ * 22 janv. 2016
+ * 
+ */
 public interface IButton  {
 	
 	 Boolean isPressed();
@@ -15,11 +21,5 @@ public interface IButton  {
 	 * @param command
 	 */
 	void setCommand(ICommand command);
-	
-	void setText(String text);
-
-	void setId(String id);
-	
-	void setButton(Button button);
 	
 }

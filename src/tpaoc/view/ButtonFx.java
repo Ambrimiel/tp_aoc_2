@@ -7,7 +7,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import tpaoc.commands.ICommand;
+import tpaoc.view.IButton;
 
+/**
+ * @author  Olivier GUILLOU - Jeanne RAULT
+ * <h1> tp_aoc2 </h1>
+ * 22 janv. 2016
+ * 
+ */
+/**
+ * @author  Olivier GUILLOU
+ * <h1> tp_aoc2 <h1>
+ * 22 janv. 2016
+ * 
+ */
 public class ButtonFx implements IButton, Initializable {
 
 	@FXML
@@ -16,7 +29,6 @@ public class ButtonFx implements IButton, Initializable {
 	private Text text;
 	private Boolean isPressed;
 	
-	// Getters and Setters
 	@Override
 	public void setCommand(ICommand command) {
 		this.command = command;
@@ -30,18 +42,24 @@ public class ButtonFx implements IButton, Initializable {
 	}
 
 	/**
-	 * @param text the text to set
+	 * @param text -  the text to set
 	 */
 	public void setText(Text text) {
 		this.text = text;
 	}
 
-	@Override
+
+	/**
+	 * @param text - text for the button
+	 */
 	public void setText(String text) {
 		button.setText(text);
 	}
 	
-	@Override
+	
+	/**
+	 * @param id - Id for the button
+	 */
 	public void setId(String id) {
 		button.setId(id);
 	}
@@ -57,7 +75,7 @@ public class ButtonFx implements IButton, Initializable {
         	isPressed = true;
         	System.err.println("The Button + " + button.getId() + " is clicked.");
 
-        	// Executing the associated command
+        	// Executing command needed
 			if (command != null) {
 				command.execute();
 			} else {
@@ -72,8 +90,9 @@ public class ButtonFx implements IButton, Initializable {
 		return isPressed;
 	}
 
-	
-	@Override
+	/**
+	 * @param button
+	 */
 	public void setButton(Button button) {
 		this.button = button;
 	}

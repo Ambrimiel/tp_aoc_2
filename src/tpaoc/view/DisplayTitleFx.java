@@ -13,35 +13,33 @@ import javafx.scene.control.Label;
  * 22 janv. 2016
  * 
  */
-public class DisplayTempoImplFx implements  Initializable {
+public class DisplayTitleFx implements  Initializable {
 
 	@FXML
-	private Label labelTempo;
+	private Label labelTitle;
 	
 	/**
 	 * @param textTempo
 	 */
-	public void setTextTempo(int textTempo) {
-		labelTempo.setText(Integer.toString(textTempo));
+	public void setTextTempo(String textTempo) {
+		labelTitle.setText(textTempo);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {}
 
 	/**
-	 * @return the labelTempo
+	 * @return the labelTitle
 	 */
-	public Label getLabelTempo() {
-		return labelTempo;
+	public Label getLabelTitle() {
+		return labelTitle;
 	}
 
 	/**
-	 * @param labelTempo the labelTempo to set
+	 * @param labelTitle the labelTitle to set
 	 */
-	public void setLabelTempo(Label labelTempo) {
-		this.labelTempo = labelTempo;
+	public void setLabelTitle(Label labelTitle) {
+		this.labelTitle = labelTitle;
 	}
-	
-	
 
 }

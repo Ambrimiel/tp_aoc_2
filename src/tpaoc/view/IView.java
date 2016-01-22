@@ -1,8 +1,14 @@
 package tpaoc.view;
 
-import javafx.scene.Parent;
+
 import tpaoc.controller.IController;
 
+/**
+ * @author  Olivier GUILLOU - Jeanne Rault
+ * <h1> tp_aoc2 </h1>
+ * 22 janv. 2016
+ * 
+ */
 public interface IView {
 	
 

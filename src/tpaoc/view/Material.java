@@ -1,6 +1,10 @@
 package tpaoc.view;
 
 import tpaoc.model.IClock;
+import tpaoc.view.IDisplayer;
+import tpaoc.view.IKeyboard;
+import tpaoc.view.ISoundEmettor;
+import tpaoc.view.IThumbWheel;
 
 /**
  * 

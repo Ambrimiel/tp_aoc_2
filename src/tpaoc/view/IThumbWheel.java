@@ -19,5 +19,11 @@ public interface IThumbWheel {
 	 * @param position :
 	 */
 	void setPosition(float position);
+	
+	/**
+	 * Returns the current position of the ThumbWheel.
+	 * @return float
+	 */
+	void setPosition(int position);
 
 }

@@ -3,8 +3,8 @@
  */
 /**
  * @author  Olivier GUILLOU
- * <h1> MetronomeHardware <h1>
- * 14 janv. 2016
+ * <h1> tp_aoc2 <h1>
+ * 22 janv. 2016
  * 
  */
 package tpaoc.view;

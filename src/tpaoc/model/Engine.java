@@ -94,14 +94,12 @@ public class Engine extends Observable implements IEngine {
 
 		this.tempo = Constants.DEFAULT_TEMPO;
 		this.nbTimeByM = Constants.DEF_TEMP_BY_TAC;
-		
-		System.err.println("tempo is " + tempo);
-		System.err.println("tempo is " + nbTimeByM);
 
 		clock = new Clock();
 
 		// Getting the controller and adding it as the observer
 		this.controller = pcontroller;
+
 		addObserver(controller);
 
 	}
@@ -116,7 +114,9 @@ public class Engine extends Observable implements IEngine {
 	 * @see tpaoc.model.IEngine#setTempo(java.lang.Integer)
 	 */
 	public final void setTempo(final Integer pTempo) {
+		
 		this.tempo = pTempo;
+		
 		// setting updated to false so the controller will know
 		updatedTempo = false;
 
@@ -215,10 +215,16 @@ public class Engine extends Observable implements IEngine {
 		return started;
 	}
 	
+	/**
+	 * @return commands 
+	 */
 	public Map<String, ICommand> getCommands() {
 		return commands;
 	}
 	
+	/**
+	 * @param commands
+	 */
 	public void setCommands(Map<String, ICommand> commands) {
 		this.commands = commands;
 	}
@@ -256,16 +262,11 @@ public class Engine extends Observable implements IEngine {
 	public int calculatePeriod() {
 		
 		if (tempo < Constants.MIN_TEMPO) { tempo = Constants.MIN_TEMPO; }
+		
 		if (tempo > Constants.MAX_TEMPO) { tempo = Constants.MAX_TEMPO; }
-		System.err.println("===========" + nbTimeByM);
-		System.err.println("===========" +tempo);
 		
-		System.err.println("==========="  + nbTimeByM*10000 / tempo);
-		
-		
-		this.period = ((nbTimeByM*60000) / tempo);
-		setChanged();
-		notifyObservers();
+		this.period = ((nbTimeByM*10000) / tempo);
+
 		return period;
 	}
 
@@ -321,7 +322,6 @@ public class Engine extends Observable implements IEngine {
 
 	@Override
 	public int getPeriod() {
-		// TODO Auto-generated method stub
 		return this.period;
 	}
 

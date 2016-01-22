@@ -22,6 +22,10 @@ public interface IKeyboard {
 	 */
 	void addButton(Integer id, IButton button);
 
+	/**
+	 * @param id
+	 * @return
+	 */
 	IButton getButton(int id);
 
 }

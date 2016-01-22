@@ -1,4 +1,8 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* JavaFX CSS 
+ * 
+ * CSS FOR THE VIEW
+ * 
+ */
 
 .root {
 	-fx-background-color: #D1C4E9; /* #F5F5F5; */ 
@@ -104,3 +108,8 @@
 	 -fx-font-size: 60px;
     -fx-text-fill: black;
 }
+
+
+#labelTitle {-fx-background-color:#D1C4E9;
+	    -fx-font-size: 36px;
+	}  

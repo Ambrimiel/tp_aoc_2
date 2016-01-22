@@ -23,10 +23,13 @@ public class LedFx implements Initializable {
 	private transient Circle led;
 
 	/**
-	 * 
+	 * State of led
 	 */
 	private boolean activated;
 	
+	/**
+	 * Id for the led
+	 */
 	private int id;
 
 	/**
@@ -45,26 +48,32 @@ public class LedFx implements Initializable {
 
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		System.out.println("Object  led added in view : ");	
-	}
+	public void initialize(URL location, ResourceBundle resources) {}
 
 
+	/**
+	 * Method for turned On the Led : (Color RED OR GREEN) 
+	 */
 	public void turnOnLED() {
 		if (id == 1){
-			led.setFill(Color.YELLOW);
+			led.setFill(Color.RED);
 		}
 		if (id == 2){
 			led.setFill(Color.BLUE);
 		}
 	}
 
-
+	/**
+	 * Method for turned OFF (WHite) the Led
+	 */
 	public void turnOffLED() {
 		led.setFill(Color.WHITE);
 	}
 	
 	
+	/**
+	 * @param number
+	 */
 	public void setId(int number){
 		this.id = number;
 	}

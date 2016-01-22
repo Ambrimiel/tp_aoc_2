@@ -47,5 +47,9 @@ public interface IController extends Observer {
 	void decreaseTimeByMeasure();
 	
 	
+	/**
+	 * Function called by the view. Updates the thumbWheel.
+	 * @param tw
+	 */
 	void updateThumbWheel(IThumbWheel tw);
 }

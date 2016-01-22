@@ -11,11 +11,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:controller="tpaoc.view.LedFx" id="AnchorPane"  xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="tpaoc.view.LedFx" id="AnchorPane"
+	xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
 
 	<children>
-	
-		<Circle fx:id="led" fill="WHITE"  radius="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+
+		<Circle fx:id="led" fill="WHITE" radius="70.0" stroke="BLACK"
+			strokeType="INSIDE" strokeWidth="0.0" />
 
 	</children>
 
