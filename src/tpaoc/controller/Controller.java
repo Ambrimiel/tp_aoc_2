@@ -11,11 +11,11 @@ import tpaoc.view.IThumbWheel;
 import tpaoc.view.IView;
 import tpaoc.view.SoundEmettor;
 
+
 /**
- * <h2><i>Project name : </i>Metronome</h2>
  * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
- * <p><i>CLass The Controller</i>. The Front controller, is a class to
- * "decouple" the view and the model.</p>
+ * <h1> TP_AOC Metronome V1.2 </h1>
+ * Controller class
  * <pre>By convention the tic is the Tempo's  and tac is Measure's name 
  * for this Metronome.</pre>
  */

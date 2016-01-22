@@ -7,12 +7,10 @@ import tpaoc.commands.ICommand;
 import tpaoc.controller.IController;
 
 /**
- * <h1>Metronome AOC</h1>
- * @author Guillou-Rault
- * <p><i>CLass The Engine</i> Invoker of the command pattern for the
- * signals * Client and receiver of the command pattern for * the mark
- * of time (with clock) * Observable of * the observer pattern, with the
- * controller. </p>
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: Engine</i> 
+ * Implementation of IEngine. </p>
  */
 
 public class Engine extends Observable implements IEngine {

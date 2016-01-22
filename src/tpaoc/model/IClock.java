@@ -5,11 +5,10 @@ import java.util.Timer;
 import tpaoc.commands.ICommand;
 
 /**
- * <h1>Metronome AOC.</h1>
- * 
- * @author Guillou-Rault 
- * Invoker of the command pattern to manage 
- * the mark of time.
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1>
+ * <p><i>Interface: IClock</i> 
+ * Invoker of the command pattern to mark the time.</p>
  */
 public interface IClock {
 

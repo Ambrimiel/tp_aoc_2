@@ -1,8 +1,10 @@
 package tpaoc.model;
 
 /**
- * @author RAULT - GUILLOU
- * <h1> Metronome AOC </h1>
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: Constants</i> 
+ * The constants class.</p>
  */
 public final class Constants {
 	

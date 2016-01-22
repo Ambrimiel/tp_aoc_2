@@ -8,8 +8,10 @@ import tpaoc.view.IDisplayer;
 
 
 /**
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: Displayer</i> 
+ * Implementation of IDisplayer. </p>
  */
 
 public class Displayer implements IDisplayer {

@@ -4,13 +4,10 @@ import javafx.scene.control.Button;
 import tpaoc.commands.ICommand;
 
 /**
- * Button's interface.
- */
-/**
- * @author  Olivier GUILLOU
- * <h1> tp_aoc2 <h1>
- * 22 janv. 2016
- * 
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Interface: IButton</i> 
+ * Interface of the buttons. </p>
  */
 public interface IButton  {
 	

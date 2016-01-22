@@ -12,9 +12,9 @@ import tpaoc.view.View;
 
 
 /**
- * @author  Olivier GUILLOU
- * <h1> TP_AOC2 </h1>
- * 22 janv. 2016
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1>
+ * Main class
  */
 public class Main extends Application {
 

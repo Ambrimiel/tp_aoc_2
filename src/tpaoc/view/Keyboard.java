@@ -6,10 +6,10 @@ import tpaoc.view.IButton;
 import tpaoc.view.IKeyboard;
 
 /**
- * @author  Olivier GUILLOU - jeanne Rault
- * <h1> tp_aoc2 </h1>
- * 22 janv. 2016
- * 
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: Keyboard</i> 
+ * Implementation of IKeyboard. </p>
  */
 public class Keyboard implements IKeyboard{
 	

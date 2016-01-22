@@ -8,10 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 /**
- * @author  Olivier GUILLOU - Jeanne RAULT
- * <h1> tp_aoc2 </h1>
- * 22 janv. 2016
- * 
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: DisplayTitleFx</i> 
+ * Used to display the title. </p>
  */
 public class DisplayTitleFx implements  Initializable {
 

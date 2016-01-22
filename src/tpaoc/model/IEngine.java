@@ -5,11 +5,14 @@ import java.util.Map;
 import tpaoc.commands.ICommand;
 
 /**
- * 
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
- *
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Interface: IEngine</i> 
+ * Invoker of the command pattern for the signals. 
+ * Client and receiver of the command pattern to mark the time (with clock). 
+ * Observed by the controller. </p>
  */
+
 public interface IEngine {
 	
 	/**

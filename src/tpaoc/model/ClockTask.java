@@ -4,9 +4,10 @@ import java.util.TimerTask;
 import tpaoc.commands.ICommand;
 
 /**
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
- * The ClockTask for manage task's time.
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: ClockTask</i> 
+ * Used by Clock to execute commands periodically. </p>
  */
 public class ClockTask extends TimerTask {
 	

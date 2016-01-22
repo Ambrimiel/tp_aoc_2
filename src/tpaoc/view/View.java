@@ -17,7 +17,12 @@ import tpaoc.view.IThumbWheel;
 import tpaoc.view.IView;
 
 
-
+/**
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC SoundEmettor V1.2 </h1> 
+ * <p><i>Class: View</i> 
+ * Implementation of IView. </p>
+ */
 public class View implements IView {
 	
 	/**

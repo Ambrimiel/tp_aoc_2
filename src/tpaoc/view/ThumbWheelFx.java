@@ -10,10 +10,10 @@ import javafx.scene.control.Slider;
 import tpaoc.commands.ICommand;
 
 /**
- * 
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
- *
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC SoundEmettor V1.2 </h1> 
+ * <p><i>Class: ThumbWheelFx</i> 
+ * Implementation of IThumbWheel. </p>
  */
 public class ThumbWheelFx implements IThumbWheel, Initializable {
 	

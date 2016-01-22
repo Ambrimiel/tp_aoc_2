@@ -1,10 +1,10 @@
 package tpaoc.view;
 
 /**
- * 
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
- *
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Interface: IKeyboard</i> 
+ * Interface to manage the buttons. </p>
  */
 public interface IKeyboard {
 	

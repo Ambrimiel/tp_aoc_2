@@ -5,10 +5,10 @@ import java.awt.Toolkit;
 import tpaoc.view.ISoundEmettor;
 
 /**
- * 
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
- * Make a simple sound
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC SoundEmettor V1.2 </h1> 
+ * <p><i>Class: LedFx</i> 
+ * Implementation of ISoundEmettor. </p>
  */
 public class SoundEmettor implements ISoundEmettor {
 

@@ -10,16 +10,10 @@ import tpaoc.commands.ICommand;
 import tpaoc.view.IButton;
 
 /**
- * @author  Olivier GUILLOU - Jeanne RAULT
- * <h1> tp_aoc2 </h1>
- * 22 janv. 2016
- * 
- */
-/**
- * @author  Olivier GUILLOU
- * <h1> tp_aoc2 <h1>
- * 22 janv. 2016
- * 
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * <p><i>Class: ButtonFx</i> 
+ * Implementation of IButton. </p>
  */
 public class ButtonFx implements IButton, Initializable {
 

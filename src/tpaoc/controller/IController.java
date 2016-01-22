@@ -8,9 +8,10 @@ import java.util.Observer;
 import tpaoc.view.IThumbWheel;
 
 /**
- * <h1> Metronome AOC. </h1>
- * @author Guillou-Rault
- * Client and the receiver for the command pattern to manage signals
+ * @author <i> Olivier GUILLOU and Jeanne RAULT</i>
+ * <h1> TP_AOC Metronome V1.2 </h1> 
+ * The interface for the Controller.
+ * Client and receiver for the command pattern to manage signals
  */
 public interface IController extends Observer {
 	
