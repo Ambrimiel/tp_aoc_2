@@ -281,7 +281,7 @@ public class Engine extends Observable implements IEngine {
 		
 		if (tempo > Constants.MAX_TEMPO) { tempo = Constants.MAX_TEMPO; }
 		
-		this.period = ((nbTimeByM*10000) / tempo);
+		this.period = Constants.NB_MS_BY_MINUTE / tempo;
 		return period;
 	}
 
@@ -322,14 +322,14 @@ public class Engine extends Observable implements IEngine {
 		// Setting the command to update tic tac if tempo
 		// or nb of times by measures has changed
 		getCommands().put("UpdateTicTac", () -> {
-			clock.desactivate(getCommands().get("tac"));
-			clock.desactivate(getCommands().get("tac"));
+			clock.desactivate(getCommands().get("Tic"));
+			clock.desactivate(getCommands().get("Tac"));
 			beginTicTac();
 		});
 
 		getCommands().put("Stop", () -> {
-			clock.desactivate(getCommands().get("tac"));
-			clock.desactivate(getCommands().get("tac"));
+			clock.desactivate(getCommands().get("Tic"));
+			clock.desactivate(getCommands().get("Tac"));
 		});
 	}
 	

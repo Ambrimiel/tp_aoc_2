@@ -154,8 +154,8 @@ public class Controller implements IController {
 		// Tempo
 		if (!engine.isUpdatedTempo()) {
 			if (engine.isStarted()) {
-				engine.updateTicTac();
 				engine.calculatePeriod();
+				engine.updateTicTac();
 				view.updateLabelTempo(engine.getTempo());
 				engine.setUpdatedTempo(true);
 			}
